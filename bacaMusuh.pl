@@ -20,7 +20,7 @@ writeEnemy :-
 rand(F,11) :- !.
 rand(F,X) :-
         write(F,'\n'),
-        write(F,'Enemy'),
+        write(F,'enemy'),
         write(F,X),
         write(F,'.\n'),
         random(1,20,N),
@@ -29,7 +29,7 @@ rand(F,X) :-
         random(1,10,M),
         write(F,M),
         write(F,'.\n'),
-        write(F,'Alive.\n'),
+        write(F,'alive.\n'),
         random(1,5,O),
         write(F,O),
         write(F,'.'),
