@@ -1,5 +1,7 @@
 /* baca file eksternal */
-read :- 
+
+
+/*read :- 
         open('enemy.txt',read,F),
         readEnemy(F,Enemy),
         close(F),
@@ -34,4 +36,4 @@ rand(F,X) :-
         write(F,O),
         write(F,'.'),
         X1 is X+1,
-        rand(F,X1).
+        rand(F,X1).*/
