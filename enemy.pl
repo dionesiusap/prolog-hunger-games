@@ -1,4 +1,5 @@
 /* baca file eksternal */
+/*X,Y,status,item*/
 :-dynamic(e1/4).
 :-dynamic(e2/4).
 :-dynamic(e3/4).
@@ -22,10 +23,10 @@ initEnemy:-
         random(1,21,X9),random(1,11,Y9),random(1,5,I9),itemNum(I9,O9),asserta(e9(X9,Y9,'alive',O9)),
         random(1,21,X10),random(1,11,Y10),random(1,5,I10),itemNum(I10,O10),asserta(e10(X10,Y10,'alive',O10)).
 
-itemNum(1,O):-O = 'Food'.
-itemNum(2,O):-O = 'Water'.
-itemNum(3,O):-O = 'Axe'.
-itemNum(4,O):-O = 'Medicine'.
+itemNum(1,O):-O = 'food'.
+itemNum(2,O):-O = 'water'.
+itemNum(3,O):-O = 'axe'.
+itemNum(4,O):-O = 'medicine'.
 itemNum(5,O):-O = ''.
 
 /*readEnemy :- 
