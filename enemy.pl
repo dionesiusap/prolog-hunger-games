@@ -12,16 +12,16 @@
 :-dynamic(e10/5).
 
 initEnemy:-
-        random(1,11,X),random(1,11,Y),random(1,5,I),itemNum(I,O),random(10,20,Atk1),asserta(e1(X,Y,'alive',Atk1,O)),
-        random(1,21,X2),random(1,11,Y2),random(1,5,I2),itemNum(I2,O2),random(10,20,Atk2),asserta(e2(X2,Y2,'alive',Atk2,O2)),
-        random(1,21,X3),random(1,11,Y3),random(1,5,I3),itemNum(I3,O3),random(10,20,Atk3),asserta(e3(X3,Y3,'alive',Atk3,O3)),
-        random(1,21,X4),random(1,11,Y4),random(1,5,I4),itemNum(I4,O4),random(10,20,Atk4),asserta(e4(X4,Y4,'alive',Atk4,O4)),
-        random(1,21,X5),random(1,11,Y5),random(1,5,I5),itemNum(I5,O5),random(10,20,Atk5),asserta(e5(X5,Y5,'alive',Atk5,O5)),
-        random(1,21,X6),random(1,11,Y6),random(1,5,I6),itemNum(I6,O6),random(10,20,Atk6),asserta(e6(X6,Y6,'alive',Atk6,O6)),
-        random(1,21,X7),random(1,11,Y7),random(1,5,I7),itemNum(I7,O7),random(10,20,Atk7),asserta(e7(X7,Y7,'alive',Atk7,O7)),
-        random(1,21,X8),random(1,11,Y8),random(1,5,I8),itemNum(I8,O8),random(10,20,Atk8),asserta(e8(X8,Y8,'alive',Atk8,O8)),
-        random(1,21,X9),random(1,11,Y9),random(1,5,I9),itemNum(I9,O9),random(10,20,Atk9),asserta(e9(X9,Y9,'alive',Atk9,O9)),
-        random(1,21,X10),random(1,11,Y10),random(1,5,I10),itemNum(I10,O10),random(10,20,Atk10),asserta(e10(X10,Y10,'alive',Atk10,O10)).
+        random(1,11,X),random(1,11,Y),random(1,5,I),itemNum(I,O),random(5,15,Atk1),asserta(e1(X,Y,'alive',Atk1,O)),
+        random(1,21,X2),random(1,11,Y2),random(1,5,I2),itemNum(I2,O2),random(5,15,Atk2),asserta(e2(X2,Y2,'alive',Atk2,O2)),
+        random(1,21,X3),random(1,11,Y3),random(1,5,I3),itemNum(I3,O3),random(5,15,Atk3),asserta(e3(X3,Y3,'alive',Atk3,O3)),
+        random(1,21,X4),random(1,11,Y4),random(1,5,I4),itemNum(I4,O4),random(5,15,Atk4),asserta(e4(X4,Y4,'alive',Atk4,O4)),
+        random(1,21,X5),random(1,11,Y5),random(1,5,I5),itemNum(I5,O5),random(5,15,Atk5),asserta(e5(X5,Y5,'alive',Atk5,O5)),
+        random(1,21,X6),random(1,11,Y6),random(1,5,I6),itemNum(I6,O6),random(5,15,Atk6),asserta(e6(X6,Y6,'alive',Atk6,O6)),
+        random(1,21,X7),random(1,11,Y7),random(1,5,I7),itemNum(I7,O7),random(5,15,Atk7),asserta(e7(X7,Y7,'alive',Atk7,O7)),
+        random(1,21,X8),random(1,11,Y8),random(1,5,I8),itemNum(I8,O8),random(5,15,Atk8),asserta(e8(X8,Y8,'alive',Atk8,O8)),
+        random(1,21,X9),random(1,11,Y9),random(1,5,I9),itemNum(I9,O9),random(5,15,Atk9),asserta(e9(X9,Y9,'alive',Atk9,O9)),
+        random(1,21,X10),random(1,11,Y10),random(1,5,I10),itemNum(I10,O10),random(5,15,Atk10),asserta(e10(X10,Y10,'alive',Atk10,O10)).
 
 /*Move AI*/
 moveenemy:-
