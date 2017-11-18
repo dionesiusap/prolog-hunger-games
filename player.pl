@@ -5,13 +5,13 @@
 :-dynamic(player/9).
 
 initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,1,'','')).
-n:-player(X,Y,S,Lp,H,T,W,I1,I2),Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n'),moveenemy.
+n:-player(X,Y,S,Lp,H,T,W,I1,I2),moveenemy,Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n').
 n:-player(X,Y,S,Lp,H,T,W,I1,I2),Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,I1,I2)),asserta(player(X,Y1,S,Lp,H,T,W,I1,I2)),lookTerrain(X,Y1),moveenemy,!.
-e:-player(X,Y,S,Lp,H,T,W,I1,I2),X\==20,X1 is X + 1,look_pos(X1,Y),!,write('cant move there\n'),moveenemy.
+e:-player(X,Y,S,Lp,H,T,W,I1,I2),moveenemy,X\==20,X1 is X + 1,look_pos(X1,Y),!,write('cant move there\n').
 e:-player(X,Y,S,Lp,H,T,W,I1,I2),X\==20,X1 is X + 1,retract(player(X,Y,S,Lp,H,T,W,I1,I2)),asserta(player(X1,Y,S,Lp,H,T,W,I1,I2)),lookTerrain(X1,Y),moveenemy,!.
-s:-player(X,Y,S,Lp,H,T,W,I1,I2),Y\==10,Y1 is Y + 1,look_pos(X,Y1),!,write('cant move there\n'),moveenemy.
+s:-player(X,Y,S,Lp,H,T,W,I1,I2),moveenemy,Y\==10,Y1 is Y + 1,look_pos(X,Y1),!,write('cant move there\n').
 s:-player(X,Y,S,Lp,H,T,W,I1,I2),Y\==10,Y1 is Y + 1,retract(player(X,Y,S,Lp,H,T,W,I1,I2)),asserta(player(X,Y1,S,Lp,H,T,W,I1,I2)),lookTerrain(X,Y1),moveenemy,!.
-w:-player(X,Y,S,Lp,H,T,W,I1,I2),X\==1,X1 is X - 1,look_pos(X1,Y),!,write('cant move there\n'),moveenemy.
+w:-player(X,Y,S,Lp,H,T,W,I1,I2),moveenemy,X\==1,X1 is X - 1,look_pos(X1,Y),!,write('cant move there\n').
 w:-player(X,Y,S,Lp,H,T,W,I1,I2),X\==1,X1 is X - 1,retract(player(X,Y,S,Lp,H,T,W,I1,I2)),asserta(player(X1,Y,S,Lp,H,T,W,I1,I2)),lookTerrain(X1,Y),moveenemy,!.
 
 look:-player(X,Y,S,Lp,H,T,W,I1,I2),writeItem(X,Y).
