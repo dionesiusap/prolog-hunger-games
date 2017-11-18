@@ -1,9 +1,55 @@
 map:-writeRow(0,0).
+:-dynamic(x1/2).
+:-dynamic(x2/2).
+:-dynamic(x3/2).
+:-dynamic(x4/2).
+:-dynamic(x5/2).
+:-dynamic(x6/2).
+:-dynamic(x7/2).
+:-dynamic(x8/2).
+:-dynamic(x9/2).
+:-dynamic(x10/2).
+:-dynamic(x11/2).
+:-dynamic(x12/2).
+:-dynamic(x13/2).
+:-dynamic(x14/2).
+:-dynamic(x15/2).
+:-dynamic(x16/2).
+:-dynamic(x17/2).
+:-dynamic(x18/2).
+:-dynamic(x19/2).
+:-dynamic(x20/2).
+
 
 tembok(21,X):- X>=0, X =<11.
 tembok(Y,11):- Y>=0, Y =<21.
 tembok(0,X):- X>=0, X =<11.
 tembok(Y,0):- Y>=0, Y =<21.
+
+/*set X and -*/
+initMap:-
+    random(1,11,Y1),asserta(x1(1,Y1)),
+    random(1,11,Y2),asserta(x2(2,Y2)),
+    random(1,11,Y3),asserta(x3(3,Y3)),
+    random(1,11,Y4),asserta(x4(4,Y4)),
+    random(1,11,Y5),asserta(x5(5,Y5)),
+    random(1,11,Y6),asserta(x6(6,Y6)),
+    random(1,11,Y7),asserta(x7(7,Y7)),
+    random(1,11,Y8),asserta(x8(8,Y8)),
+    random(1,11,Y9),asserta(x9(9,Y9)),
+    random(1,11,Y10),asserta(x10(10,Y10)),
+    random(1,11,Y11),asserta(x11(11,Y11)),
+    random(1,11,Y12),asserta(x12(12,Y12)),
+    random(1,11,Y13),asserta(x13(13,Y13)),
+    random(1,11,Y14),asserta(x14(14,Y14)),
+    random(1,11,Y15),asserta(x15(15,Y15)),
+    random(1,11,Y16),asserta(x16(16,Y16)),
+    random(1,11,Y17),asserta(x17(17,Y17)),
+    random(1,11,Y18),asserta(x18(18,Y18)),
+    random(1,11,Y19),asserta(x19(19,Y19)),
+    random(1,11,Y20),asserta(x20(120,Y20)).
+
+
 
 writeRow(12,J):-!.
 writeRow(I,J):-writeCol(I,0).
