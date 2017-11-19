@@ -1,4 +1,4 @@
-setup :- consult(enemy),consult(map),consult(player),consult(item),consult(terrain),initPlayer,initTerrain,initItem,initMap,initEnemy.
+setup :- consult(enemy),consult(map),consult(player),consult(item),consult(terrain),consult('Attack.pl'),initPlayer,initTerrain,initItem,initMap,initEnemy.
 start :- setup,write('Welcome to the 77th Hunger Games!\nYou have been chosen as one of the lucky contestants. Be the last man standing and you will be rembered as \none of the victors\n\n\n'),help.
 help :- write('Available commands:\nstart.   --start the games!\nhelp.   --show available commands\nquit.   --quit the game\nlook.   --look around you\nn.s.e.w.   --move\nmap.   --look at the map and detect enemies(need radar to use)\ntake(Object).   --pick up an object\ndrop(Object).   --drop an object\nuse(Object).   --use an object\nattack.   --attack enemy that crosses your path\nstatus.   --show your status\nsave(Filename).   --save your game\nload(Filename).   --load previously saved game\n').
 quit :- halt.
