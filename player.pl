@@ -5,7 +5,7 @@
 :-dynamic(player/8).
 
 initPlayer:-random(1,21,X),random(1,11,Y),look_pos(X,Y),!,initPlayer.
-initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,1,[])).
+initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[])).
 
 n:-player(X,Y,S,Lp,H,T,W,L),Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n'),moveenemy.
 n:-player(X,Y,S,Lp,H,T,W,L),Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X,Y1,S,Lp,H1,T1,W,L)),lookTerrain(X,Y1),moveenemy,!,lookNow(X,Y1).
@@ -25,8 +25,8 @@ status:-player(X,Y,S,Lp,H,T,W,L),
     write('Weapon: '),writeWeapon(W),write('\n'),
     write('Inventory: '),write('\n'),writeInventory(L),write('\n').
 
-writeWeapon(1):-write('Bazooka').
-writeWeapon(0):-write('Bare Hands').
+writeWeapon(1):-write('bazooka').
+writeWeapon(0):-write('bare Hands').
 
 writeInventory([]):-write('\n').
 writeInventory([H|T]):-write(H),write('\n'),writeInventory(T).
@@ -135,11 +135,12 @@ lookNow(I,J):-itemE7(I,J,'available','food'),write('You see some food\n').
 lookNow(I,J):-itemE8(I,J,'available','medecine'),write('You see some medicine\n').
 lookNow(I,J):-itemE9(I,J,'available','medecine'),write('You see some medicine\n').
 lookNow(I,J):-itemE10(I,J,'available','radar'),write('You see a radar\n').
-lookNow(I,J):-item11(I,J,'available','bazooka'),write('you use a Bazooka'),!.
-lookNow(I,J):-item12(I,J,'available','bazooka'),write('you use a Bazooka'),!.
-lookNow(I,J):-item13(I,J,'available','bazooka'),write('you use a Bazooka'),!.
-lookNow(I,J):-item14(I,J,'available','bazooka'),write('you use a Bazooka'),!.
-lookNow(I,J):-item15(I,J,'available','bazooka'),write('you use a Bazooka'),!.
+lookNow(I,J):-item11(I,J,'available','bazooka'),write('you see a bazooka'),!.
+lookNow(I,J):-item12(I,J,'available','bazooka'),write('you see a bazooka'),!.
+lookNow(I,J):-item13(I,J,'available','bazooka'),write('you see a bazooka'),!.
+lookNow(I,J):-item14(I,J,'available','bazooka'),write('you see a bazooka'),!.
+lookNow(I,J):-item15(I,J,'available','bazooka'),write('you see a bazooka'),!.
+lookNow(I,J):-write(''),!.
 
 
 

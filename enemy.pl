@@ -59,7 +59,7 @@ change_movement(X,Y,X1,Y,4):-X1 is X -1.
 
 itemNum(1,O):-O = 'food'.
 itemNum(2,O):-O = 'water'.
-itemNum(3,O):-O = 'axe'.
+itemNum(3,O):-O = 'radar'.
 itemNum(4,O):-O = 'medicine'.
-itemNum(5,O):-O = 'radar'.
+
 
