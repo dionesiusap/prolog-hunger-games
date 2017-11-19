@@ -18,9 +18,9 @@ take(_) :- player(_,_,S,Lp,H,T,W,L),!, write('You haven\'t got any item in your 
 
 
 use(I) :- player(X,Y,S,Lp,H,T,W,L), \+(member(I,L)),!,write('You don\'t have '),write(I),write(' to use.\n').
-use(I) :- player(X,Y,S,Lp,H,T,W,L), I==food, member(I,L), Lp<85, Lp1 is Lp + 15, del(I,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp1,H,T,W,L1)),!,write('You successfully increased your energy by 15 points.\n').
+use(I) :- player(X,Y,S,Lp,H,T,W,L), I==food, member(I,L), H<85, H1 is H + 15, del(I,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H1,T,W,L1)),!,write('You successfully increased your energy by 15 points.\n').
 use(I) :- player(X,Y,S,Lp,H,T,W,L), I==water, member(I,L), T<85, T1 is T + 15, del(I,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H,T1,W,L1)),!,write('You successfully increased your hydration by 15 points.\n').
-use(I) :- player(X,Y,S,Lp,H,T,W,L), I==medicine, member(I,L), H<85, H1 is H + 15, del(I,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H1,T,W,L1)),!,write('You successfully increased your health point by 15 points.\n').
+use(I) :- player(X,Y,S,Lp,H,T,W,L), I==medicine, member(I,L), H<85, Lp1 is Lp + 15, del(I,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp1,H,T,W,L1)),!,write('You successfully increased your health point by 15 points.\n').
 use(I) :- player(X,Y,S,Lp,H,T,W,L), I==bazooka, member(I,L),!, retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H,T,1,L)), write('You now have a bazooka on your hand.\n').
 
 drop(I) :- player(X,Y,S,Lp,H,T,W,L), \+(member(I,L)),!,write('You don\'t have '),write(I),write(' anyway. What do you want to drop?\n').

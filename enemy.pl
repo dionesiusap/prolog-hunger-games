@@ -11,6 +11,8 @@
 :-dynamic(e9/5).
 :-dynamic(e10/5).
 
+
+
 initEnemy:-
         random(1,11,X),random(1,11,Y),random(1,5,I),itemNum(I,O),random(5,15,Atk1),asserta(e1(X,Y,'alive',Atk1,O)),
         random(1,21,X2),random(1,11,Y2),random(1,5,I2),itemNum(I2,O2),random(5,15,Atk2),asserta(e2(X2,Y2,'alive',Atk2,O2)),
@@ -34,7 +36,7 @@ moveenemy:-
         e7(X7,Y7,'alive',Atk7,O7),movement(X7,Y7,XX7,YY7),retract(e7(X7,Y7,'alive',Atk7,O7)),asserta(e7(XX7,YY7,'alive',Atk7,O7)),
         e8(X8,Y8,'alive',Atk8,O8),movement(X8,Y8,XX8,YY8),retract(e8(X8,Y8,'alive',Atk8,O8)),asserta(e8(XX8,YY8,'alive',Atk8,O8)),
         e9(X9,Y9,'alive',Atk9,O9),movement(X9,Y9,XX9,YY9),retract(e9(X9,Y9,'alive',Atk9,O9)),asserta(e9(XX9,YY9,'alive',Atk9,O9)),
-        e10(X10,Y10,'alive',Atk10,O10),movement(X10,Y10,XX10,YY10),retract(e10(X1,Y10,'alive',Atk10,O10)),asserta(e10(XX10,YY10,'alive',Atk10,O10)).
+        e10(X10,Y10,'alive',Atk10,O10),movement(X10,Y10,XX10,YY10),retract(e10(X10,Y10,'alive',Atk10,O10)),asserta(e10(XX10,YY10,'alive',Atk10,O10)).
 
 
 /*1 atas 2 kanan 3 bawah 4 kiri*/
@@ -59,5 +61,5 @@ itemNum(1,O):-O = 'food'.
 itemNum(2,O):-O = 'water'.
 itemNum(3,O):-O = 'axe'.
 itemNum(4,O):-O = 'medicine'.
-itemNum(5,O):-O = ''.
+itemNum(5,O):-O = 'radar'.
 
