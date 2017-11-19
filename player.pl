@@ -1,26 +1,9 @@
 /* baca file eksternal */
-<<<<<<< HEAD
-/*(X,Y,status,Health,Hungry,Thirst,Weapon,Item)*/
-=======
 /*(X,Y,status,Health,Hungry,Thirst,Weapon,ItemList)*/
->>>>>>> 04056f85e96de2faa78f1b1cf420bb152d28f429
 
 
 :-dynamic(player/8).
 
-<<<<<<< HEAD
-initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,1,['a'])).
-n:-player(X,Y,S,Lp,H,T,W,[L]),moveenemy,Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n').
-n:-player(X,Y,S,Lp,H,T,W,[L]),Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,[L])),asserta(player(X,Y1,S,Lp,H,T,W,[L])),lookTerrain(X,Y1),moveenemy,!.
-e:-player(X,Y,S,Lp,H,T,W,[L]),moveenemy,X\==20,X1 is X + 1,look_pos(X1,Y),!,write('cant move there\n').
-e:-player(X,Y,S,Lp,H,T,W,[L]),X\==20,X1 is X + 1,retract(player(X,Y,S,Lp,H,T,W,[L])),asserta(player(X1,Y,S,Lp,H,T,W,[L])),lookTerrain(X1,Y),moveenemy,!.
-s:-player(X,Y,S,Lp,H,T,W,[L]),moveenemy,Y\==10,Y1 is Y + 1,look_pos(X,Y1),!,write('cant move there\n').
-s:-player(X,Y,S,Lp,H,T,W,[L]),Y\==10,Y1 is Y + 1,retract(player(X,Y,S,Lp,H,T,W,[L])),asserta(player(X,Y1,S,Lp,H,T,W,[L])),lookTerrain(X,Y1),moveenemy,!.
-w:-player(X,Y,S,Lp,H,T,W,[L]),moveenemy,X\==1,X1 is X - 1,look_pos(X1,Y),!,write('cant move there\n').
-w:-player(X,Y,S,Lp,H,T,W,[L]),X\==1,X1 is X - 1,retract(player(X,Y,S,Lp,H,T,W,[L])),asserta(player(X1,Y,S,Lp,H,T,W,[L])),lookTerrain(X1,Y),moveenemy,!.
-
-look:-player(X,Y,S,Lp,H,T,W,[L]),writeItem(X,Y).
-=======
 initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[])).
 n:-player(X,Y,S,Lp,H,T,W,L),Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n'),moveenemy.
 n:-player(X,Y,S,Lp,H,T,W,L),Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,L)),asserta(player(X,Y1,S,Lp,H,T,W,L)),lookTerrain(X,Y1),moveenemy,!.
@@ -32,7 +15,6 @@ w:-player(X,Y,S,Lp,H,T,W,L),X\==1,X1 is X - 1,look_pos(X1,Y),!,write('cant move 
 w:-player(X,Y,S,Lp,H,T,W,L),X\==1,X1 is X - 1,retract(player(X,Y,S,Lp,H,T,W,L)),asserta(player(X1,Y,S,Lp,H,T,W,L)),lookTerrain(X1,Y),moveenemy,!.
 
 look:-player(X,Y,S,Lp,H,T,W,L),writeItem(X,Y).
->>>>>>> 04056f85e96de2faa78f1b1cf420bb152d28f429
 
 writeItem(X,Y):-X1 is X-1,Y1 is Y-1,X2 is X+1,Y2 is Y+1,
     look_elmt(X1,Y1),
