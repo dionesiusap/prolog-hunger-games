@@ -61,6 +61,11 @@ look_elmt(I,J):-item7(I,J,'available','food'),write('F'),!.
 look_elmt(I,J):-item8(I,J,'available','medecine'),write('M'),!.
 look_elmt(I,J):-item9(I,J,'available','medecine'),write('M'),!.
 look_elmt(I,J):-item10(I,J,'available','radar'),write('R'),!.
+look_elmt(I,J):-item11(I,J,'available','bazooka'),write('B'),!.
+look_elmt(I,J):-item12(I,J,'available','bazooka'),write('B'),!.
+look_elmt(I,J):-item13(I,J,'available','bazooka'),write('B'),!.
+look_elmt(I,J):-item14(I,J,'available','bazooka'),write('B'),!.
+look_elmt(I,J):-item15(I,J,'available','bazooka'),write('B'),!.
 look_elmt(I,J):-player(I,J,'alive',_,_,_,_,_),write('P'),!.
 look_elmt(I,J):-write('-').
 
