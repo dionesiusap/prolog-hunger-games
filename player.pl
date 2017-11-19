@@ -74,6 +74,7 @@ look_elmt(I,J):-item7(I,J,'available','food'),write('F'),!.
 look_elmt(I,J):-item8(I,J,'available','medecine'),write('M'),!.
 look_elmt(I,J):-item9(I,J,'available','medecine'),write('M'),!.
 look_elmt(I,J):-item10(I,J,'available','radar'),write('R'),!.
+<<<<<<< HEAD
 look_elmt(I,J):-itemE1(I,J,'available','water'),write('W'),!.
 look_elmt(I,J):-itemE2(I,J,'available','water'),write('W'),!.
 look_elmt(I,J):-itemE3(I,J,'available','water'),write('W'),!.
@@ -84,6 +85,13 @@ look_elmt(I,J):-itemE7(I,J,'available','food'),write('F'),!.
 look_elmt(I,J):-itemE8(I,J,'available','medecine'),write('M'),!.
 look_elmt(I,J):-itemE9(I,J,'available','medecine'),write('M'),!.
 look_elmt(I,J):-itemE10(I,J,'available','radar'),write('R'),!.
+=======
+look_elmt(I,J):-item11(I,J,'available','bazooka'),write('B'),!.
+look_elmt(I,J):-item12(I,J,'available','bazooka'),write('B'),!.
+look_elmt(I,J):-item13(I,J,'available','bazooka'),write('B'),!.
+look_elmt(I,J):-item14(I,J,'available','bazooka'),write('B'),!.
+look_elmt(I,J):-item15(I,J,'available','bazooka'),write('B'),!.
+>>>>>>> 67e208947123e2be31dc04559e8b83ad936694b8
 look_elmt(I,J):-player(I,J,'alive',_,_,_,_,_),write('P'),!.
 look_elmt(I,J):-write('-').
 

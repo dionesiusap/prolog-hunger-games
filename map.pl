@@ -1,4 +1,8 @@
-map:-writeRow(0,0).
+/***** MAP *****/
+
+map:- player(X,Y,S,Lp,H,T,W,L), member(radar,L),!, writeRow(0,0).
+map:- player(X,Y,S,Lp,H,T,W,L), \+(member(radar,L)),!,write('You need a radar to see the entire map.\n').
+
 :-dynamic(x1/2).
 :-dynamic(x3/2).
 :-dynamic(x5/2).
