@@ -4,7 +4,9 @@
 
 :-dynamic(player/8).
 
+initPlayer:-random(1,21,X),random(1,11,Y),look_pos(X,Y),!,initPlayer.
 initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[])).
+
 n:-player(X,Y,S,Lp,H,T,W,L),Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n'),moveenemy.
 n:-player(X,Y,S,Lp,H,T,W,L),Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,L)),asserta(player(X,Y1,S,Lp,H,T,W,L)),lookTerrain(X,Y1),moveenemy,!.
 e:-player(X,Y,S,Lp,H,T,W,L),X\==20,X1 is X + 1,look_pos(X1,Y),!,write('cant move there\n'),moveenemy.
@@ -28,28 +30,17 @@ writeItem(X,Y):-X1 is X-1,Y1 is Y-1,X2 is X+1,Y2 is Y+1,
     look_elmt(X2,Y2),write('\n').
 
 
-
 look_elmt(I,J):-tembok(I,J),write('#').
 look_elmt(I,J):-x1(I,J),write('X'),!.
-look_elmt(I,J):-x2(I,J),write('X'),!.
 look_elmt(I,J):-x3(I,J),write('X'),!.
-look_elmt(I,J):-x4(I,J),write('X'),!.
 look_elmt(I,J):-x5(I,J),write('X'),!.
-look_elmt(I,J):-x6(I,J),write('X'),!.
 look_elmt(I,J):-x7(I,J),write('X'),!.
-look_elmt(I,J):-x8(I,J),write('X'),!.
 look_elmt(I,J):-x9(I,J),write('X'),!.
-look_elmt(I,J):-x10(I,J),write('X'),!.
 look_elmt(I,J):-x11(I,J),write('X'),!.
-look_elmt(I,J):-x12(I,J),write('X'),!.
 look_elmt(I,J):-x13(I,J),write('X'),!.
-look_elmt(I,J):-x14(I,J),write('X'),!.
 look_elmt(I,J):-x15(I,J),write('X'),!.
-look_elmt(I,J):-x16(I,J),write('X'),!.
 look_elmt(I,J):-x17(I,J),write('X'),!.
-look_elmt(I,J):-x18(I,J),write('X'),!.
 look_elmt(I,J):-x19(I,J),write('X'),!.
-look_elmt(I,J):-x20(I,J),write('X'),!.
 look_elmt(I,J):-e1(I,J,'alive',_,_),write('E'),!.
 look_elmt(I,J):-e2(I,J,'alive',_,_),write('E'),!.
 look_elmt(I,J):-e3(I,J,'alive',_,_),write('E'),!.
@@ -74,25 +65,15 @@ look_elmt(I,J):-player(I,J,'alive',_,_,_,_,_),write('P'),!.
 look_elmt(I,J):-write('-').
 
 look_pos(I,J):-x1(I,J),!.
-look_pos(I,J):-x2(I,J),!.
 look_pos(I,J):-x3(I,J),!.
-look_pos(I,J):-x4(I,J),!.
 look_pos(I,J):-x5(I,J),!.
-look_pos(I,J):-x6(I,J),!.
 look_pos(I,J):-x7(I,J),!.
-look_pos(I,J):-x8(I,J),!.
 look_pos(I,J):-x9(I,J),!.
-look_pos(I,J):-x10(I,J),!.
 look_pos(I,J):-x11(I,J),!.
-look_pos(I,J):-x12(I,J),!.
 look_pos(I,J):-x13(I,J),!.
-look_pos(I,J):-x14(I,J),!.
 look_pos(I,J):-x15(I,J),!.
-look_pos(I,J):-x16(I,J),!.
 look_pos(I,J):-x17(I,J),!.
-look_pos(I,J):-x18(I,J),!.
 look_pos(I,J):-x19(I,J),!.
-look_pos(I,J):-x20(I,J),!.
 
 
 /********** TAKE, USE, AND DROP COMMANDS **********/
