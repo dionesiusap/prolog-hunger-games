@@ -7,17 +7,18 @@
 initPlayer:-random(1,21,X),random(1,11,Y),look_pos(X,Y),!,initPlayer.
 initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[])).
 
-n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n'),moveenemy.
+n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('Can\'t move there\n'),moveenemy.
 n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X,Y1,S,Lp,H1,T1,W,L)),lookTerrain(X,Y1),moveenemy,!,lookNow(X,Y1).
-e:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==20,X1 is X + 1,look_pos(X1,Y),!,write('cant move there\n'),moveenemy.
+e:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==20,X1 is X + 1,look_pos(X1,Y),!,write('Can\'t move there\n'),moveenemy.
 e:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==20,X1 is X + 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X1,Y,S,Lp,H1,T1,W,L)),lookTerrain(X1,Y),moveenemy,!,lookNow(X1,Y).
-s:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==10,Y1 is Y + 1,look_pos(X,Y1),!,write('cant move there\n'),moveenemy.
+s:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==10,Y1 is Y + 1,look_pos(X,Y1),!,write('Can\'t move there\n'),moveenemy.
 s:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==10,Y1 is Y + 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X,Y1,S,Lp,H1,T1,W,L)),lookTerrain(X,Y1),moveenemy,!,lookNow(X,Y1).
-w:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==1,X1 is X - 1,look_pos(X1,Y),!,write('cant move there\n'),moveenemy.
+w:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==1,X1 is X - 1,look_pos(X1,Y),!,write('Can\'t move there\n'),moveenemy.
 w:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==1,X1 is X - 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X1,Y,S,Lp,H1,T1,W,L)),lookTerrain(X1,Y),moveenemy,!,lookNow(X1,Y).
 
-sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y),!,retract(player(X,Y,S,Lp,H,T,W,L)),F is Lp+10, asserta(player(X,Y,S,F,H,T,W,L)),write('You fill your enery bar again'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
-sleep:-player(X,Y,S,Lp,H,T,W,L),\+lookTerrainNow(X,Y),!,retract(player(X,Y,S,Lp,H,T,W,L)),F is Lp-20, asserta(player(X,Y,S,F,H,T,W,L)),write('you try to sleep outside...... you hit by rabbit your health drop by 20 '),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
+sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y), Lp<90,!, retract(player(X,Y,S,Lp,H,T,W,L)),F is Lp+10, asserta(player(X,Y,S,F,H,T,W,L)),write('After a good sleep, your health is now recharged.'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
+sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y), Lp>=90,! ,retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,100,H,T,W,L)),write('After a good sleep, your health is now recharged.'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
+sleep:-player(X,Y,S,Lp,H,T,W,L),\+lookTerrainNow(X,Y),!,retract(player(X,Y,S,Lp,H,T,W,L)),F is Lp-20, asserta(player(X,Y,S,F,H,T,W,L)),write('You tried to sleep outside......\nYou were hit by a rabbit and your health dropped by 20.\n'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
 
 dead:-player(_,_,_,Lp,H,T,_,_),Lp=:=0,write('You are dead'),halt.
 dead:-player(_,_,_,Lp,H,T,_,_),H=:=0,write('You are dead'),halt.
@@ -33,10 +34,10 @@ status:-player(X,Y,S,Lp,H,T,W,L),
     write('Inventory: '),write('\n'),writeInventory(L),write('\n').
 
 writeWeapon(1):-write('bazooka').
-writeWeapon(0):-write('bare Hands').
+writeWeapon(0):-write('bare hands').
 
 writeInventory([]):-write('\n').
-writeInventory([H|T]):-write(H),write('\n'),writeInventory(T).
+writeInventory([H|T]):-write('- '),write(H),write('\n'),writeInventory(T).
 
 writeItem(X,Y):-X1 is X-1,Y1 is Y-1,X2 is X+1,Y2 is Y+1,
     look_elmt(X1,Y1),
