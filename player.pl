@@ -16,17 +16,17 @@ s:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==10,Y1 is Y + 1,retract(player(X,Y,S,Lp,H,
 w:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==1,X1 is X - 1,look_pos(X1,Y),!,write('Can\'t move there\n'),moveenemy.
 w:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==1,X1 is X - 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X1,Y,S,Lp,H1,T1,W,L)),lookTerrain(X1,Y),moveenemy,!,lookNow(X1,Y).
 
-sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y,1), H<90,!, retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H+10, Lp1 is Lp-10, asserta(player(X,Y,S,Lp1,H1,T,W,L)),write('You tried to sleep in a forest.\nYou found fruits in the forest and ate them before sleep. Your energy is now recharged. However, the forest was cold and wet and unfortunately you caught flu. Your health drops by 10 points.'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
-sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y,1), H>=90,! ,retract(player(X,Y,S,Lp,H,T,W,L)), Lp1 is Lp-10, asserta(player(X,Y,S,Lp1,100,T,W,L)),write('You tried to sleep in a forest.\nYou found fruits in the forest and ate them before sleep. Your energy is now recharged. However, the forest was cold and wet and unfortunately you caught flu. Your health drops by 10 points.'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
-sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y,2), Lp<80,!, retract(player(X,Y,S,Lp,H,T,W,L)),F is Lp+20, asserta(player(X,Y,S,F,H,T,W,L)),write('You tried to sleep in a cave. Good choice!\nAfter a good sleep, your health is now recharged.'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
-sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y,2), Lp>=80,! ,retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,100,H,T,W,L)),write('You tried to sleep in a cave. Good choice!\nAfter a good sleep, your health is now recharged.'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
+sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y,1), H<90,!, retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H+10, Lp1 is Lp-10, asserta(player(X,Y,S,Lp1,H1,T,W,L)),write('You tried to sleep in a forest.\nYou found fruits in the forest and ate them before sleep. Your energy is now recharged.\nHowever, the forest was cold and wet and unfortunately you caught flu. Your health drops by 10 points.\n'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
+sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y,1), H>=90,! ,retract(player(X,Y,S,Lp,H,T,W,L)), Lp1 is Lp-10, asserta(player(X,Y,S,Lp1,100,T,W,L)),write('You tried to sleep in a forest.\nYou found fruits in the forest and ate them before sleep. Your energy is now recharged.\nHowever, the forest was cold and wet and unfortunately you caught flu. Your health drops by 10 points.\n'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
+sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y,2), Lp<80,!, retract(player(X,Y,S,Lp,H,T,W,L)),F is Lp+20, asserta(player(X,Y,S,F,H,T,W,L)),write('You tried to sleep in a cave. Good choice!\nAfter a good sleep, your health is now recharged.\n'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
+sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y,2), Lp>=80,! ,retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,100,H,T,W,L)),write('You tried to sleep in a cave. Good choice!\nAfter a good sleep, your health is now recharged.\n'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
 sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y,3),!, retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H,100,W,L)),write('You found an empty camp near the lake. You tried to sleep there.\nYou had unlimited supply of water for the night and now you\'re fully hydrated.\n'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
 sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y,4),\+(unlucky),!,retract(player(X,Y,S,Lp,H,T,W,L)),F is Lp-20, asserta(player(X,Y,S,F,H,T,W,L)),write('You tried to sleep outside.\nYou were hit by a rabbit and your health dropped by 20.\n'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
 sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y,4),unlucky,!,retract(player(X,Y,S,Lp,H,T,W,L)),F is Lp-20, deletelst([food,water],L,L1), asserta(player(X,Y,S,F,H,T,W,L1)),write('You tried to sleep outside.\nYou were hit by a rabbit and your health dropped by 20.\nBut wait, there\'s more!\nUnlucky for you, one of the enemies found you sleeping on an open space and stole all food and drinks.\n'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
 
-dead:-player(_,_,_,Lp,H,T,_,_),Lp=:=0,write('You are dead'),halt.
-dead:-player(_,_,_,Lp,H,T,_,_),H=:=0,write('You are dead'),halt.
-dead:-player(_,_,_,Lp,H,T,_,_),T=:=0,write('You are dead'),halt.
+dead:-player(_,_,_,Lp,H,T,_,_),Lp=<0,write('You are dead'),halt.
+dead:-player(_,_,_,Lp,H,T,_,_),H=<0,write('You are dead'),halt.
+dead:-player(_,_,_,Lp,H,T,_,_),T=<0,write('You are dead'),halt.
 
 look:-player(X,Y,S,Lp,H,T,W,L),writeItem(X,Y).
 
