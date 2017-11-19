@@ -1,0 +1,11 @@
+e1(5,6,alive,Food). 
+player(16,1,alive,100,100,100,1,,). 
+e2(12,1,alive,Axe). 
+e3(11,2,alive,Food). 
+e4(10,6,alive,Axe). 
+e5(18,4,alive,Axe). 
+e6(3,10,alive,Axe). 
+e7(9,4,alive,Axe). 
+e8(11,7,alive,Water). 
+e9(19,2,alive,Food). 
+e10(20,9,alive,Medicine). 
