@@ -68,5 +68,5 @@ elmt(I,J):-e7(I,J,'alive',_,_),write('E'),!.
 elmt(I,J):-e8(I,J,'alive',_,_),write('E'),!.
 elmt(I,J):-e9(I,J,'alive',_,_),write('E'),!.
 elmt(I,J):-e10(I,J,'alive',_,_),write('E'),!.
-elmt(I,J):-player(I,J,'alive',_,_,_,_,_,_),write('P'),!.
+elmt(I,J):-player(I,J,'alive',_,_,_,_,_),write('P'),!.
 elmt(I,J):-write(' ').

@@ -4,14 +4,14 @@
 
 :-dynamic(player/8).
 
-initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,1,[])).
-n:-player(X,Y,S,Lp,H,T,W,L),moveenemy,Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n').
+initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[])).
+n:-player(X,Y,S,Lp,H,T,W,L),Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n'),moveenemy.
 n:-player(X,Y,S,Lp,H,T,W,L),Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,L)),asserta(player(X,Y1,S,Lp,H,T,W,L)),lookTerrain(X,Y1),moveenemy,!.
-e:-player(X,Y,S,Lp,H,T,W,L),moveenemy,X\==20,X1 is X + 1,look_pos(X1,Y),!,write('cant move there\n').
+e:-player(X,Y,S,Lp,H,T,W,L),X\==20,X1 is X + 1,look_pos(X1,Y),!,write('cant move there\n'),moveenemy.
 e:-player(X,Y,S,Lp,H,T,W,L),X\==20,X1 is X + 1,retract(player(X,Y,S,Lp,H,T,W,L)),asserta(player(X1,Y,S,Lp,H,T,W,L)),lookTerrain(X1,Y),moveenemy,!.
-s:-player(X,Y,S,Lp,H,T,W,L),moveenemy,Y\==10,Y1 is Y + 1,look_pos(X,Y1),!,write('cant move there\n').
+s:-player(X,Y,S,Lp,H,T,W,L),Y\==10,Y1 is Y + 1,look_pos(X,Y1),!,write('cant move there\n'),moveenemy.
 s:-player(X,Y,S,Lp,H,T,W,L),Y\==10,Y1 is Y + 1,retract(player(X,Y,S,Lp,H,T,W,L)),asserta(player(X,Y1,S,Lp,H,T,W,L)),lookTerrain(X,Y1),moveenemy,!.
-w:-player(X,Y,S,Lp,H,T,W,L),moveenemy,X\==1,X1 is X - 1,look_pos(X1,Y),!,write('cant move there\n').
+w:-player(X,Y,S,Lp,H,T,W,L),X\==1,X1 is X - 1,look_pos(X1,Y),!,write('cant move there\n'),moveenemy.
 w:-player(X,Y,S,Lp,H,T,W,L),X\==1,X1 is X - 1,retract(player(X,Y,S,Lp,H,T,W,L)),asserta(player(X1,Y,S,Lp,H,T,W,L)),lookTerrain(X1,Y),moveenemy,!.
 
 look:-player(X,Y,S,Lp,H,T,W,L),writeItem(X,Y).
@@ -70,29 +70,29 @@ look_elmt(I,J):-item7(I,J,'available','food'),write('F'),!.
 look_elmt(I,J):-item8(I,J,'available','medecine'),write('M'),!.
 look_elmt(I,J):-item9(I,J,'available','medecine'),write('M'),!.
 look_elmt(I,J):-item10(I,J,'available','radar'),write('R'),!.
-look_elmt(I,J):-player(I,J,'alive',_,_,_,_,_,_),write('P'),!.
+look_elmt(I,J):-player(I,J,'alive',_,_,_,_,_),write('P'),!.
 look_elmt(I,J):-write('-').
 
-look_pos(I,J):-x1(I,J),write('X'),!.
-look_pos(I,J):-x2(I,J),write('X'),!.
-look_pos(I,J):-x3(I,J),write('X'),!.
-look_pos(I,J):-x4(I,J),write('X'),!.
-look_pos(I,J):-x5(I,J),write('X'),!.
-look_pos(I,J):-x6(I,J),write('X'),!.
-look_pos(I,J):-x7(I,J),write('X'),!.
-look_pos(I,J):-x8(I,J),write('X'),!.
-look_pos(I,J):-x9(I,J),write('X'),!.
-look_pos(I,J):-x10(I,J),write('X'),!.
-look_pos(I,J):-x11(I,J),write('X'),!.
-look_pos(I,J):-x12(I,J),write('X'),!.
-look_pos(I,J):-x13(I,J),write('X'),!.
-look_pos(I,J):-x14(I,J),write('X'),!.
-look_pos(I,J):-x15(I,J),write('X'),!.
-look_pos(I,J):-x16(I,J),write('X'),!.
-look_pos(I,J):-x17(I,J),write('X'),!.
-look_pos(I,J):-x18(I,J),write('X'),!.
-look_pos(I,J):-x19(I,J),write('X'),!.
-look_pos(I,J):-x20(I,J),write('X'),!.
+look_pos(I,J):-x1(I,J),!.
+look_pos(I,J):-x2(I,J),!.
+look_pos(I,J):-x3(I,J),!.
+look_pos(I,J):-x4(I,J),!.
+look_pos(I,J):-x5(I,J),!.
+look_pos(I,J):-x6(I,J),!.
+look_pos(I,J):-x7(I,J),!.
+look_pos(I,J):-x8(I,J),!.
+look_pos(I,J):-x9(I,J),!.
+look_pos(I,J):-x10(I,J),!.
+look_pos(I,J):-x11(I,J),!.
+look_pos(I,J):-x12(I,J),!.
+look_pos(I,J):-x13(I,J),!.
+look_pos(I,J):-x14(I,J),!.
+look_pos(I,J):-x15(I,J),!.
+look_pos(I,J):-x16(I,J),!.
+look_pos(I,J):-x17(I,J),!.
+look_pos(I,J):-x18(I,J),!.
+look_pos(I,J):-x19(I,J),!.
+look_pos(I,J):-x20(I,J),!.
 
 
 /********** TAKE, USE, AND DROP COMMANDS **********/
