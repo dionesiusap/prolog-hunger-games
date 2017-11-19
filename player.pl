@@ -5,14 +5,14 @@
 :-dynamic(player/9).
 
 initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,1,'','')).
-n:-player(X,Y,S,Lp,H,T,W,I1,I2),moveenemy,Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n').
-n:-player(X,Y,S,Lp,H,T,W,I1,I2),Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,I1,I2)),asserta(player(X,Y1,S,Lp,H,T,W,I1,I2)),lookTerrain(X,Y1),moveenemy,!.
-e:-player(X,Y,S,Lp,H,T,W,I1,I2),moveenemy,X\==20,X1 is X + 1,look_pos(X1,Y),!,write('cant move there\n').
-e:-player(X,Y,S,Lp,H,T,W,I1,I2),X\==20,X1 is X + 1,retract(player(X,Y,S,Lp,H,T,W,I1,I2)),asserta(player(X1,Y,S,Lp,H,T,W,I1,I2)),lookTerrain(X1,Y),moveenemy,!.
-s:-player(X,Y,S,Lp,H,T,W,I1,I2),moveenemy,Y\==10,Y1 is Y + 1,look_pos(X,Y1),!,write('cant move there\n').
-s:-player(X,Y,S,Lp,H,T,W,I1,I2),Y\==10,Y1 is Y + 1,retract(player(X,Y,S,Lp,H,T,W,I1,I2)),asserta(player(X,Y1,S,Lp,H,T,W,I1,I2)),lookTerrain(X,Y1),moveenemy,!.
-w:-player(X,Y,S,Lp,H,T,W,I1,I2),moveenemy,X\==1,X1 is X - 1,look_pos(X1,Y),!,write('cant move there\n').
-w:-player(X,Y,S,Lp,H,T,W,I1,I2),X\==1,X1 is X - 1,retract(player(X,Y,S,Lp,H,T,W,I1,I2)),asserta(player(X1,Y,S,Lp,H,T,W,I1,I2)),lookTerrain(X1,Y),moveenemy,!.
+n:-player(X,Y,S,Lp,H,T,W,I1),moveenemy,Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n').
+n:-player(X,Y,S,Lp,H,T,W,I1),Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,I1)),asserta(player(X,Y1,S,Lp,H,T,W,I1)),lookTerrain(X,Y1),moveenemy,!.
+e:-player(X,Y,S,Lp,H,T,W,I1),moveenemy,X\==20,X1 is X + 1,look_pos(X1,Y),!,write('cant move there\n').
+e:-player(X,Y,S,Lp,H,T,W,I1),X\==20,X1 is X + 1,retract(player(X,Y,S,Lp,H,T,W,I1)),asserta(player(X1,Y,S,Lp,H,T,W,I1)),lookTerrain(X1,Y),moveenemy,!.
+s:-player(X,Y,S,Lp,H,T,W,I1),moveenemy,Y\==10,Y1 is Y + 1,look_pos(X,Y1),!,write('cant move there\n').
+s:-player(X,Y,S,Lp,H,T,W,I1),Y\==10,Y1 is Y + 1,retract(player(X,Y,S,Lp,H,T,W,I1)),asserta(player(X,Y1,S,Lp,H,T,W,I1)),lookTerrain(X,Y1),moveenemy,!.
+w:-player(X,Y,S,Lp,H,T,W,I1),moveenemy,X\==1,X1 is X - 1,look_pos(X1,Y),!,write('cant move there\n').
+w:-player(X,Y,S,Lp,H,T,W,I1),X\==1,X1 is X - 1,retract(player(X,Y,S,Lp,H,T,W,I1)),asserta(player(X1,Y,S,Lp,H,T,W,I1)),lookTerrain(X1,Y),moveenemy,!.
 
 look:-player(X,Y,S,Lp,H,T,W,I1,I2),writeItem(X,Y).
 
@@ -73,23 +73,23 @@ look_elmt(I,J):-item10(I,J,'available','radar'),write('R'),!.
 look_elmt(I,J):-player(I,J,'alive',_,_,_,_,_,_),write('P'),!.
 look_elmt(I,J):-write('-').
 
-look_pos(I,J):-x1(I,J),write('X'),!.
-look_pos(I,J):-x2(I,J),write('X'),!.
-look_pos(I,J):-x3(I,J),write('X'),!.
-look_pos(I,J):-x4(I,J),write('X'),!.
-look_pos(I,J):-x5(I,J),write('X'),!.
-look_pos(I,J):-x6(I,J),write('X'),!.
-look_pos(I,J):-x7(I,J),write('X'),!.
-look_pos(I,J):-x8(I,J),write('X'),!.
-look_pos(I,J):-x9(I,J),write('X'),!.
-look_pos(I,J):-x10(I,J),write('X'),!.
-look_pos(I,J):-x11(I,J),write('X'),!.
-look_pos(I,J):-x12(I,J),write('X'),!.
-look_pos(I,J):-x13(I,J),write('X'),!.
-look_pos(I,J):-x14(I,J),write('X'),!.
-look_pos(I,J):-x15(I,J),write('X'),!.
-look_pos(I,J):-x16(I,J),write('X'),!.
-look_pos(I,J):-x17(I,J),write('X'),!.
-look_pos(I,J):-x18(I,J),write('X'),!.
-look_pos(I,J):-x19(I,J),write('X'),!.
-look_pos(I,J):-x20(I,J),write('X'),!.
+look_pos(I,J):-x1(I,J),!.
+look_pos(I,J):-x2(I,J),!.
+look_pos(I,J):-x3(I,J),!.
+look_pos(I,J):-x4(I,J),!.
+look_pos(I,J):-x5(I,J),!.
+look_pos(I,J):-x6(I,J),!.
+look_pos(I,J):-x7(I,J),!.
+look_pos(I,J):-x8(I,J),!.
+look_pos(I,J):-x9(I,J),!.
+look_pos(I,J):-x10(I,J),!.
+look_pos(I,J):-x11(I,J),!.
+look_pos(I,J):-x12(I,J),!.
+look_pos(I,J):-x13(I,J),!.
+look_pos(I,J):-x14(I,J),!.
+look_pos(I,J):-x15(I,J),!.
+look_pos(I,J):-x16(I,J),!.
+look_pos(I,J):-x17(I,J),!.
+look_pos(I,J):-x18(I,J),!.
+look_pos(I,J):-x19(I,J),!.
+look_pos(I,J):-x20(I,J),!.
