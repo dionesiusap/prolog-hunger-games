@@ -1,9 +1,14 @@
 /* baca file eksternal */
+<<<<<<< HEAD
 /*(X,Y,status,Health,Hungry,Thirst,Weapon,Item)*/
+=======
+/*(X,Y,status,Health,Hungry,Thirst,Weapon,ItemList)*/
+>>>>>>> 04056f85e96de2faa78f1b1cf420bb152d28f429
 
 
 :-dynamic(player/8).
 
+<<<<<<< HEAD
 initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,1,['a'])).
 n:-player(X,Y,S,Lp,H,T,W,[L]),moveenemy,Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n').
 n:-player(X,Y,S,Lp,H,T,W,[L]),Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,[L])),asserta(player(X,Y1,S,Lp,H,T,W,[L])),lookTerrain(X,Y1),moveenemy,!.
@@ -15,6 +20,19 @@ w:-player(X,Y,S,Lp,H,T,W,[L]),moveenemy,X\==1,X1 is X - 1,look_pos(X1,Y),!,write
 w:-player(X,Y,S,Lp,H,T,W,[L]),X\==1,X1 is X - 1,retract(player(X,Y,S,Lp,H,T,W,[L])),asserta(player(X1,Y,S,Lp,H,T,W,[L])),lookTerrain(X1,Y),moveenemy,!.
 
 look:-player(X,Y,S,Lp,H,T,W,[L]),writeItem(X,Y).
+=======
+initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[])).
+n:-player(X,Y,S,Lp,H,T,W,L),Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n'),moveenemy.
+n:-player(X,Y,S,Lp,H,T,W,L),Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,L)),asserta(player(X,Y1,S,Lp,H,T,W,L)),lookTerrain(X,Y1),moveenemy,!.
+e:-player(X,Y,S,Lp,H,T,W,L),X\==20,X1 is X + 1,look_pos(X1,Y),!,write('cant move there\n'),moveenemy.
+e:-player(X,Y,S,Lp,H,T,W,L),X\==20,X1 is X + 1,retract(player(X,Y,S,Lp,H,T,W,L)),asserta(player(X1,Y,S,Lp,H,T,W,L)),lookTerrain(X1,Y),moveenemy,!.
+s:-player(X,Y,S,Lp,H,T,W,L),Y\==10,Y1 is Y + 1,look_pos(X,Y1),!,write('cant move there\n'),moveenemy.
+s:-player(X,Y,S,Lp,H,T,W,L),Y\==10,Y1 is Y + 1,retract(player(X,Y,S,Lp,H,T,W,L)),asserta(player(X,Y1,S,Lp,H,T,W,L)),lookTerrain(X,Y1),moveenemy,!.
+w:-player(X,Y,S,Lp,H,T,W,L),X\==1,X1 is X - 1,look_pos(X1,Y),!,write('cant move there\n'),moveenemy.
+w:-player(X,Y,S,Lp,H,T,W,L),X\==1,X1 is X - 1,retract(player(X,Y,S,Lp,H,T,W,L)),asserta(player(X1,Y,S,Lp,H,T,W,L)),lookTerrain(X1,Y),moveenemy,!.
+
+look:-player(X,Y,S,Lp,H,T,W,L),writeItem(X,Y).
+>>>>>>> 04056f85e96de2faa78f1b1cf420bb152d28f429
 
 writeItem(X,Y):-X1 is X-1,Y1 is Y-1,X2 is X+1,Y2 is Y+1,
     look_elmt(X1,Y1),
@@ -73,23 +91,41 @@ look_elmt(I,J):-item10(I,J,'available','radar'),write('R'),!.
 look_elmt(I,J):-player(I,J,'alive',_,_,_,_,_),write('P'),!.
 look_elmt(I,J):-write('-').
 
-look_pos(I,J):-x1(I,J),write('X'),!.
-look_pos(I,J):-x2(I,J),write('X'),!.
-look_pos(I,J):-x3(I,J),write('X'),!.
-look_pos(I,J):-x4(I,J),write('X'),!.
-look_pos(I,J):-x5(I,J),write('X'),!.
-look_pos(I,J):-x6(I,J),write('X'),!.
-look_pos(I,J):-x7(I,J),write('X'),!.
-look_pos(I,J):-x8(I,J),write('X'),!.
-look_pos(I,J):-x9(I,J),write('X'),!.
-look_pos(I,J):-x10(I,J),write('X'),!.
-look_pos(I,J):-x11(I,J),write('X'),!.
-look_pos(I,J):-x12(I,J),write('X'),!.
-look_pos(I,J):-x13(I,J),write('X'),!.
-look_pos(I,J):-x14(I,J),write('X'),!.
-look_pos(I,J):-x15(I,J),write('X'),!.
-look_pos(I,J):-x16(I,J),write('X'),!.
-look_pos(I,J):-x17(I,J),write('X'),!.
-look_pos(I,J):-x18(I,J),write('X'),!.
-look_pos(I,J):-x19(I,J),write('X'),!.
-look_pos(I,J):-x20(I,J),write('X'),!.
+look_pos(I,J):-x1(I,J),!.
+look_pos(I,J):-x2(I,J),!.
+look_pos(I,J):-x3(I,J),!.
+look_pos(I,J):-x4(I,J),!.
+look_pos(I,J):-x5(I,J),!.
+look_pos(I,J):-x6(I,J),!.
+look_pos(I,J):-x7(I,J),!.
+look_pos(I,J):-x8(I,J),!.
+look_pos(I,J):-x9(I,J),!.
+look_pos(I,J):-x10(I,J),!.
+look_pos(I,J):-x11(I,J),!.
+look_pos(I,J):-x12(I,J),!.
+look_pos(I,J):-x13(I,J),!.
+look_pos(I,J):-x14(I,J),!.
+look_pos(I,J):-x15(I,J),!.
+look_pos(I,J):-x16(I,J),!.
+look_pos(I,J):-x17(I,J),!.
+look_pos(I,J):-x18(I,J),!.
+look_pos(I,J):-x19(I,J),!.
+look_pos(I,J):-x20(I,J),!.
+
+
+/********** TAKE, USE, AND DROP COMMANDS **********/
+/*
+del(X,[X|Tail],Tail).
+del(X,[Y|Tail],[Y|Tail1]):- del(X,Tail,Tail1).
+
+take(I) :- player(X,Y,S,Lp,H,T,W,L), length(L,5), !, write('Your inventory is full.').
+take(I) :- player(X,Y,S,Lp,H,T,W,L), \+(length(L,5)), append([I],L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H,T,W,L1)),!,write('You just took a(n) '),write(I),write('.\n').
+
+use(I) :- player(X,Y,S,Lp,H,T,W,L), \+(member(I,L)),!,write('You don\'t have '),write(I),write(' to use.\n').
+use(food) :- player(X,Y,S,Lp,H,T,W,L), member(food,L), Lp=<85, Lp1 is Lp + 15, del(food,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp1,H,T,W,L1)),!,write('You successfully increased your energy by 15 points.\n').
+use(drink) :- player(X,Y,S,Lp,H,T,W,L), member(drink,L), T=<85, T1 is T + 15, del(drink,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H,T1,W,L1)),!,write('You successfully increased your hydration by 15 points.\n').
+use(medicine) :- player(X,Y,S,Lp,H,T,W,L), member(medicine,L), H=<85, H1 is H + 15, del(medicine,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H1,T,W,L1)),!,write('You successfully increased your health point by 15 points.\n').
+use(bazooka) :- player(X,Y,S,Lp,H,T,W,L), member(bazooka,L),!,write('You now have a bazooka on your hand.\n').
+
+drop(I) :- player(X,Y,S,Lp,H,T,W,L), \+(member(I,L)),!,write('You don\'t have '),write(I),write(' anyway. What do you want to drop?\n').
+drop(I) :- player(X,Y,S,Lp,H,T,W,L), member(I,L), del(I,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp1,H,T,W,L1)),!,write('You just dropped a(n) '),write(I),write('.\n').*/
