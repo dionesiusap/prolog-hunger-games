@@ -409,6 +409,16 @@ lookTerrain(X,Y):-
     write('To the east is '),look_terrain(X2,Y),write('\n'),
     write('To the south is '),look_terrain(X,Y2),write('\n').
 
+look_terrain(I,J):-x1(I,J),write('cliff'),!.
+look_terrain(I,J):-x3(I,J),write('cliff'),!.
+look_terrain(I,J):-x5(I,J),write('cliff'),!.
+look_terrain(I,J):-x7(I,J),write('cliff'),!.
+look_terrain(I,J):-x9(I,J),write('cliff'),!.
+look_terrain(I,J):-x11(I,J),write('cliff'),!.
+look_terrain(I,J):-x13(I,J),write('cliff'),!.
+look_terrain(I,J):-x15(I,J),write('cliff'),!.
+look_terrain(I,J):-x17(I,J),write('cliff'),!.
+look_terrain(I,J):-x19(I,J),write('cliff'),!.
 look_terrain(I,J):-tembok(I,J),write('wall'),!.
 look_terrain(I,J):-t1(J,I,M),terraintype(M),!.
 look_terrain(I,J):-t2(J,I,M),terraintype(M),!.
