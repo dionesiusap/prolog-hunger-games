@@ -47,6 +47,7 @@ isAttacked :- player(X,Y,S,Lp,H,T,W,L), e1(X,Y,'alive',Atk1,O), getattacked.
 getattacked :- retract(player(X,Y,S,Lp,H,T,W,L)), F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP').
 
 isDead(F) :- F =< 0, write('you\'re dead'), halt.
+
 isWin:-
 	e1(_,_,'Dead',_,_),
 	e2(_,_,'Dead',_,_),
