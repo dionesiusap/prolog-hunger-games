@@ -5,7 +5,7 @@
 :-dynamic(player/8).
 
 initPlayer:-random(1,21,X),random(1,11,Y),look_pos(X,Y),!,initPlayer.
-initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[])).
+initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,1,[])).
 
 n:-player(X,Y,S,Lp,H,T,W,L),Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('cant move there\n'),moveenemy.
 n:-player(X,Y,S,Lp,H,T,W,L),Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,L)),asserta(player(X,Y1,S,Lp,H,T,W,L)),lookTerrain(X,Y1),moveenemy,!.
