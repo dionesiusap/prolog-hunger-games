@@ -8,6 +8,19 @@
 :-dynamic(itemE8/4).
 :-dynamic(itemE9/4).
 :-dynamic(itemE10/4).
+
+initItemDrop :-
+		asserta(itemE1(-1,-1,'taken',0)),
+		asserta(itemE2(-1,-1,'taken',0)),
+		asserta(itemE3(-1,-1,'taken',0)),
+		asserta(itemE4(-1,-1,'taken',0)),
+		asserta(itemE5(-1,-1,'taken',0)),
+		asserta(itemE6(-1,-1,'taken',0)),
+		asserta(itemE7(-1,-1,'taken',0)),
+		asserta(itemE8(-1,-1,'taken',0)),
+		asserta(itemE9(-1,-1,'taken',0)),
+		asserta(itemE10(-1,-1,'taken',0)).
+
 /*command untuk attack, hanya bisa menyerang musuh yang ada di petak yang sama) */
 attack :- player(X,Y,S,Lp,H,T,W,L), W =:= 1, e1(X,Y,'alive',Atk1,O), retract(e1(X,Y,'alive',Atk1,O)), 
 		asserta(e1(X,Y,'Dead',Atk1,O)),write('an enemy killed\n'), retract(player(X,Y,S,Lp,H,T,W,L)), 
@@ -59,5 +72,4 @@ isWin:-
 	e8(_,_,'Dead',_,_),
 	e9(_,_,'Dead',_,_),
 	e10(_,_,'Dead',_,_),
-	e1(_,_,'Dead',_,_),
 	write('All enemy die you win').
