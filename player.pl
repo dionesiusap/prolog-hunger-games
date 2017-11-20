@@ -5,7 +5,7 @@
 :-dynamic(player/8).
 
 initPlayer:-random(1,21,X),random(1,11,Y),look_pos(X,Y),!,initPlayer.
-initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[])).
+initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[radar])).
 
 n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('Can\'t move there\n'),moveenemy.
 n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X,Y1,S,Lp,H1,T1,W,L)),lookTerrain(X,Y1),moveenemy,!,lookNow(X,Y1).
@@ -72,26 +72,26 @@ look_elmt(I,J):-e7(I,J,'alive',_,_),write('E'),!.
 look_elmt(I,J):-e8(I,J,'alive',_,_),write('E'),!.
 look_elmt(I,J):-e9(I,J,'alive',_,_),write('E'),!.
 look_elmt(I,J):-e10(I,J,'alive',_,_),write('E'),!.
-look_elmt(I,J):-item1(I,J,'available','water'),write('W'),!.
-look_elmt(I,J):-item2(I,J,'available','water'),write('W'),!.
-look_elmt(I,J):-item3(I,J,'available','water'),write('W'),!.
+look_elmt(I,J):-item8(I,J,'available','medecine'),write('M'),!.
+look_elmt(I,J):-item9(I,J,'available','medecine'),write('M'),!.
+look_elmt(I,J):-itemE8(I,J,'available','medecine'),write('M'),!.
+look_elmt(I,J):-itemE9(I,J,'available','medecine'),write('M'),!.
 look_elmt(I,J):-item4(I,J,'available','food'),write('F'),!.
 look_elmt(I,J):-item5(I,J,'available','food'),write('F'),!.
 look_elmt(I,J):-item6(I,J,'available','food'),write('F'),!.
 look_elmt(I,J):-item7(I,J,'available','food'),write('F'),!.
-look_elmt(I,J):-item8(I,J,'available','medecine'),write('M'),!.
-look_elmt(I,J):-item9(I,J,'available','medecine'),write('M'),!.
-look_elmt(I,J):-item10(I,J,'available','radar'),write('R'),!.
-look_elmt(I,J):-itemE1(I,J,'available','water'),write('W'),!.
-look_elmt(I,J):-itemE2(I,J,'available','water'),write('W'),!.
-look_elmt(I,J):-itemE3(I,J,'available','water'),write('W'),!.
 look_elmt(I,J):-itemE4(I,J,'available','food'),write('F'),!.
 look_elmt(I,J):-itemE5(I,J,'available','food'),write('F'),!.
 look_elmt(I,J):-itemE6(I,J,'available','food'),write('F'),!.
 look_elmt(I,J):-itemE7(I,J,'available','food'),write('F'),!.
-look_elmt(I,J):-itemE8(I,J,'available','medecine'),write('M'),!.
-look_elmt(I,J):-itemE9(I,J,'available','medecine'),write('M'),!.
+look_elmt(I,J):-item2(I,J,'available','water'),write('W'),!.
+look_elmt(I,J):-item3(I,J,'available','water'),write('W'),!.
+look_elmt(I,J):-itemE1(I,J,'available','water'),write('W'),!.
+look_elmt(I,J):-item1(I,J,'available','water'),write('W'),!.
+look_elmt(I,J):-itemE2(I,J,'available','water'),write('W'),!.
+look_elmt(I,J):-itemE3(I,J,'available','water'),write('W'),!.
 look_elmt(I,J):-itemE10(I,J,'available','radar'),write('R'),!.
+look_elmt(I,J):-item10(I,J,'available','radar'),write('R'),!.
 look_elmt(I,J):-item11(I,J,'available','bazooka'),write('B'),!.
 look_elmt(I,J):-item12(I,J,'available','bazooka'),write('B'),!.
 look_elmt(I,J):-item13(I,J,'available','bazooka'),write('B'),!.
@@ -353,21 +353,4 @@ lookTerrainNow(I,J):-t198(J,I,2),!.
 lookTerrainNow(I,J):-t199(J,I,2),!.
 lookTerrainNow(I,J):-t200(J,I,2),!.
 
-
-
-/********** TAKE, USE, AND DROP COMMANDS **********/
-/*
-del(X,[X|Tail],Tail).
-del(X,[Y|Tail],[Y|Tail1]):- del(X,Tail,Tail1).
-
-take(I) :- player(X,Y,S,Lp,H,T,W,L), length(L,5), !, write('Your inventory is full.').
-take(I) :- player(X,Y,S,Lp,H,T,W,L), \+(length(L,5)), append([I],L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H,T,W,L1)),!,write('You just took a(n) '),write(I),write('.\n').
-
-use(I) :- player(X,Y,S,Lp,H,T,W,L), \+(member(I,L)),!,write('You don\'t have '),write(I),write(' to use.\n').
-use(food) :- player(X,Y,S,Lp,H,T,W,L), member(food,L), Lp=<85, Lp1 is Lp + 15, del(food,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp1,H,T,W,L1)),!,write('You successfully increased your energy by 15 points.\n').
-use(drink) :- player(X,Y,S,Lp,H,T,W,L), member(drink,L), T=<85, T1 is T + 15, del(drink,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H,T1,W,L1)),!,write('You successfully increased your hydration by 15 points.\n').
-use(medicine) :- player(X,Y,S,Lp,H,T,W,L), member(medicine,L), H=<85, H1 is H + 15, del(medicine,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H1,T,W,L1)),!,write('You successfully increased your health point by 15 points.\n').
-use(bazooka) :- player(X,Y,S,Lp,H,T,W,L), member(bazooka,L),!,write('You now have a bazooka on your hand.\n').
-
-drop(I) :- player(X,Y,S,Lp,H,T,W,L), \+(member(I,L)),!,write('You don\'t have '),write(I),write(' anyway. What do you want to drop?\n').
-drop(I) :- player(X,Y,S,Lp,H,T,W,L), member(I,L), del(I,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp1,H,T,W,L1)),!,write('You just dropped a(n) '),write(I),write('.\n').*/
+unlucky :- random(1,4,X), X=:=1.

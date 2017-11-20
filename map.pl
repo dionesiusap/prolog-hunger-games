@@ -1,6 +1,6 @@
 /***** MAP *****/
 
-map:- player(X,Y,S,Lp,H,T,W,L), member(radar,L),!, writeRow(0,0).
+map:- player(X,Y,S,Lp,H,T,W,L), member(radar,L),!, writeRow(0,0),!,fail.
 map:- player(X,Y,S,Lp,H,T,W,L), \+(member(radar,L)),!,write('You need a radar to see the entire map.\n').
 
 :-dynamic(x1/2).
@@ -32,7 +32,6 @@ initMap:-
     random(1,11,Y15),asserta(x15(15,Y15)),
     random(1,11,Y17),asserta(x17(17,Y17)),
     random(1,11,Y19),asserta(x19(19,Y19)).
-
 
 
 writeRow(12,J):-!.
