@@ -42,9 +42,19 @@ attack :- player(X,Y,S,Lp,H,T,W,L), W =:= 1, e10(X,Y,'alive',Atk1,O), retract(e1
 attack :- player(_,_,_,_,_,_,W,_), W =:= 1, write('No more enemy to attack in this place').
 attack :- write('you\'re not using any weapon').
 
-isAttacked :- player(X,Y,S,Lp,H,T,W,L), e1(X,Y,'alive',Atk1,O), getattacked.
+isAttacked :- player(X,Y,S,Lp,H,T,W,L), e1(X,Y,'alive',Atk1,O), getattacked(Atk1).
+isAttacked :- player(X,Y,S,Lp,H,T,W,L), e2(X,Y,'alive',Atk1,O), getattacked(Atk1).
+isAttacked :- player(X,Y,S,Lp,H,T,W,L), e3(X,Y,'alive',Atk1,O), getattacked(Atk1).
+isAttacked :- player(X,Y,S,Lp,H,T,W,L), e4(X,Y,'alive',Atk1,O), getattacked(Atk1).
+isAttacked :- player(X,Y,S,Lp,H,T,W,L), e5(X,Y,'alive',Atk1,O), getattacked(Atk1).
+isAttacked :- player(X,Y,S,Lp,H,T,W,L), e6(X,Y,'alive',Atk1,O), getattacked(Atk1).
+isAttacked :- player(X,Y,S,Lp,H,T,W,L), e7(X,Y,'alive',Atk1,O), getattacked(Atk1).
+isAttacked :- player(X,Y,S,Lp,H,T,W,L), e8(X,Y,'alive',Atk1,O), getattacked(Atk1).
+isAttacked :- player(X,Y,S,Lp,H,T,W,L), e9(X,Y,'alive',Atk1,O), getattacked(Atk1).
+isAttacked :- player(X,Y,S,Lp,H,T,W,L), e10(X,Y,'alive',Atk1,O), getattacked(Atk1).
 
-getattacked :- retract(player(X,Y,S,Lp,H,T,W,L)), F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP').
+
+getattacked(Atk1) :- retract(player(X,Y,S,Lp,H,T,W,L)), F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP').
 
 isDead(F) :- F =< 0, write('you\'re dead'), halt.
 
