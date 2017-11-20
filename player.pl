@@ -5,7 +5,7 @@
 :-dynamic(player/8).
 
 initPlayer:-random(1,21,X),random(1,11,Y),look_pos(X,Y),!,initPlayer.
-initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[])).
+initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[radar])).
 
 n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('Can\'t move there\n'),moveenemy.
 n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X,Y1,S,Lp,H1,T1,W,L)),lookTerrain(X,Y1),moveenemy,!,lookNow(X,Y1).
@@ -357,7 +357,7 @@ lookTerrainNow(I,J,T):-t198(J,I,T),!.
 lookTerrainNow(I,J,T):-t199(J,I,T),!.
 lookTerrainNow(I,J,T):-t200(J,I,T),!.
 
-unlucky :- random(1,4,X), X==1.
+unlucky :- random(1,4,X), X=:=1.
 
 nonElement(_, []).
 nonElement(X, [Y|Z]) :- dif(X, Y), nonElement(X,Z).
