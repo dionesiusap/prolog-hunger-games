@@ -30,7 +30,7 @@ take(I) :-player(X,Y,S,Lp,H,T,W,L), itemE7(XI,YI,'available',O), I==O,\+(length(
 take(I) :-player(X,Y,S,Lp,H,T,W,L), itemE8(XI,YI,'available',O), I==O,\+(length(L,5)), X==XI, Y==YI, append([I],L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H,T,W,L1)),!,write('You just took a(n) '),write(I),write('.\n'),retract(itemE9(XI,YI,'available',O)),asserta(itemE8(XI,YI,'taken',O)),\+ isAttacked, moveenemy.
 take(I) :-player(X,Y,S,Lp,H,T,W,L), itemE9(XI,YI,'available',O), I==O,\+(length(L,5)), X==XI, Y==YI, append([I],L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H,T,W,L1)),!,write('You just took a(n) '),write(I),write('.\n'),retract(itemE9(XI,YI,'available',O)),asserta(itemE9(XI,YI,'taken',O)),\+ isAttacked, moveenemy.
 take(I) :-player(X,Y,S,Lp,H,T,W,L), itemE10(XI,YI,'available',O), I==O,\+(length(L,5)), X==XI, Y==YI, append([I],L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H,T,W,L1)),!,write('You just took a(n) '),write(I),write('.\n'),retract(itemE10(XI,YI,'available',O)),asserta(itemE10(XI,YI,'taken',O)),\+ isAttacked, moveenemy.
-take(_) :- player(_,_,S,Lp,H,T,W,L),!, write('You haven\'t got any item in your proximity to take.\n'),isAttacked.
+take(I) :- player(_,_,S,Lp,H,T,W,L),!, write('You haven\'t got any '), write(I), write(' in your proximity to take.\n'),isAttacked.
 
 /* USE */
 use(I) :- player(X,Y,S,Lp,H,T,W,L), \+(member(I,L)),!,write('You don\'t have '),write(I),write(' to use.\n'),isAttacked.
