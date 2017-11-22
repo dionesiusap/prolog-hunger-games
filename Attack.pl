@@ -82,4 +82,4 @@ isWin:-
 	e8(_,_,'Dead',_,_),
 	e9(_,_,'Dead',_,_),
 	e10(_,_,'Dead',_,_),
-	write('All enemy die you win').
+	write('All enemes are dead. Congratulations, you win!').

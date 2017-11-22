@@ -5,7 +5,7 @@
 :-dynamic(player/8).
 
 initPlayer:-random(1,21,X),random(1,11,Y),look_pos(X,Y),!,initPlayer.
-initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[radar])).
+initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[])).
 
 n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('Can\'t move there\n'),moveenemy.
 n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X,Y1,S,Lp,H1,T1,W,L)),lookTerrain(X,Y1),moveenemy,!,lookNow(X,Y1).
@@ -33,7 +33,7 @@ look:-player(X,Y,S,Lp,H,T,W,L),writeItem(X,Y).
 
 status:-player(X,Y,S,Lp,H,T,W,L),
     write('Health: '),write(Lp),write('\n'),
-    write('Hungry: '),write(H),write('\n'),
+    write('Hunger: '),write(H),write('\n'),
     write('Thirst: '),write(T),write('\n'),
     write('Weapon: '),writeWeapon(W),write('\n'),
     write('Inventory: '),write('\n'),writeInventory(L),write('\n').

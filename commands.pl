@@ -35,8 +35,11 @@ take(_) :- player(_,_,S,Lp,H,T,W,L),!, write('You haven\'t got any item in your 
 /* USE */
 use(I) :- player(X,Y,S,Lp,H,T,W,L), \+(member(I,L)),!,write('You don\'t have '),write(I),write(' to use.\n'),isAttacked.
 use(I) :- player(X,Y,S,Lp,H,T,W,L), I==food, member(I,L), H<75, H1 is H + 25, del(I,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H1,T,W,L1)),!,write('You successfully increased your energy by 25 points.\n'),\+ isAttacked, moveenemy.
+use(I) :- player(X,Y,S,Lp,H,T,W,L), I==food, member(I,L), H>=75, !, write('Your hunger is not low enough to eat some food.').
 use(I) :- player(X,Y,S,Lp,H,T,W,L), I==water, member(I,L), T<75, T1 is T + 25, del(I,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H,T1,W,L1)),!,write('You successfully increased your hydration by 25 points.\n'),\+ isAttacked, moveenemy.
+use(I) :- player(X,Y,S,Lp,H,T,W,L), I==water, member(I,L), T>=75, !, write('Your thirst is not low enough to drink some more water.').
 use(I) :- player(X,Y,S,Lp,H,T,W,L), I==medicine, member(I,L), Lp<75, Lp1 is Lp + 25, del(I,L,L1), retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp1,H,T,W,L1)),!,write('You successfully increased your health point by 25 points.\n'),\+ isAttacked, moveenemy.
+use(I) :- player(X,Y,S,Lp,H,T,W,L), I==water, member(I,L), Lp>=75, !, write('Your health is not low enough to use some medicine.').
 use(I) :- player(X,Y,S,Lp,H,T,W,L), I==bazooka, member(I,L),!, retract(player(X,Y,S,Lp,H,T,W,L)), asserta(player(X,Y,S,Lp,H,T,1,L)), write('You now have a bazooka on your hand.\n'),\+ isAttacked, moveenemy,isAttacked.
 
 /* DROP */
