@@ -5,16 +5,16 @@
 :-dynamic(player/8).
 
 initPlayer:-random(1,21,X),random(1,11,Y),look_pos(X,Y),!,initPlayer.
-initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[])).
+initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(4,5,'alive',100,100,100,2,[])).
 
 n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('Can\'t move there\n'),moveenemy.
-n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X,Y1,S,Lp,H1,T1,W,L)),lookTerrain(X,Y1),moveenemy,!,lookNow(X,Y1).
+n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X,Y1,S,Lp,H1,T1,W,L)),lookTerrain(X,Y1),moveenemy,!,lookNow(X,Y1),fail.
 e:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==20,X1 is X + 1,look_pos(X1,Y),!,write('Can\'t move there\n'),moveenemy.
-e:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==20,X1 is X + 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X1,Y,S,Lp,H1,T1,W,L)),lookTerrain(X1,Y),moveenemy,!,lookNow(X1,Y).
+e:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==20,X1 is X + 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X1,Y,S,Lp,H1,T1,W,L)),lookTerrain(X1,Y),moveenemy,!,lookNow(X1,Y),fail.
 s:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==10,Y1 is Y + 1,look_pos(X,Y1),!,write('Can\'t move there\n'),moveenemy.
-s:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==10,Y1 is Y + 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X,Y1,S,Lp,H1,T1,W,L)),lookTerrain(X,Y1),moveenemy,!,lookNow(X,Y1).
+s:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==10,Y1 is Y + 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X,Y1,S,Lp,H1,T1,W,L)),lookTerrain(X,Y1),moveenemy,!,lookNow(X,Y1),fail.
 w:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==1,X1 is X - 1,look_pos(X1,Y),!,write('Can\'t move there\n'),moveenemy.
-w:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==1,X1 is X - 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X1,Y,S,Lp,H1,T1,W,L)),lookTerrain(X1,Y),moveenemy,!,lookNow(X1,Y).
+w:-player(X,Y,S,Lp,H,T,W,L),\+dead,X\==1,X1 is X - 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-1,asserta(player(X1,Y,S,Lp,H1,T1,W,L)),lookTerrain(X1,Y),moveenemy,!,lookNow(X1,Y),fail.
 
 sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y,1), H<90,!, retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H+10, Lp1 is Lp-10, asserta(player(X,Y,S,Lp1,H1,T,W,L)),write('You tried to sleep in a forest.\nYou found fruits in the forest and ate them before sleep. Your energy is now recharged.\nHowever, the forest was cold and wet and unfortunately you caught flu. Your health drops by 10 points.\n'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
 sleep:-player(X,Y,S,Lp,H,T,W,L),lookTerrainNow(X,Y,1), H>=90,! ,retract(player(X,Y,S,Lp,H,T,W,L)), Lp1 is Lp-10, asserta(player(X,Y,S,Lp1,100,T,W,L)),write('You tried to sleep in a forest.\nYou found fruits in the forest and ate them before sleep. Your energy is now recharged.\nHowever, the forest was cold and wet and unfortunately you caught flu. Your health drops by 10 points.\n'),moveenemy,moveenemy,moveenemy,moveenemy,moveenemy.
@@ -38,6 +38,7 @@ status:-player(X,Y,S,Lp,H,T,W,L),
     write('Weapon: '),writeWeapon(W),write('\n'),
     write('Inventory: '),write('\n'),writeInventory(L),write('\n').
 
+writeWeapon(2):-write('gojek').
 writeWeapon(1):-write('bazooka').
 writeWeapon(0):-write('bare hands').
 
@@ -102,6 +103,10 @@ look_elmt(I,J):-item12(I,J,'available','bazooka'),write('B'),!.
 look_elmt(I,J):-item13(I,J,'available','bazooka'),write('B'),!.
 look_elmt(I,J):-item14(I,J,'available','bazooka'),write('B'),!.
 look_elmt(I,J):-item15(I,J,'available','bazooka'),write('B'),!.
+/*looK_elmt(I,J):-goride(I,J,'available','goride'),write('G'),!.
+looK_elmt(I,J):-gocar(I,J,'available','gocar'),write('G'),!.
+looK_elmt(I,J):-gofood(I,J,'available','gofood'),write('G'),!.
+looK_elmt(I,J):-gosend(I,J,'available','gosend'),write('G'),!.*/
 look_elmt(I,J):-player(I,J,'alive',_,_,_,_,_),write('P'),!.
 look_elmt(I,J):-write('-').
 
@@ -118,41 +123,45 @@ look_pos(I,J):-x19(I,J),!.
 
 
 /*melihat petak dibawah ada apa*/
-lookNow(I,J):-e1(I,J,'alive',_,_),write('You see an enemy\n').
-lookNow(I,J):-e2(I,J,'alive',_,_),write('You see an enemy\n').
-lookNow(I,J):-e3(I,J,'alive',_,_),write('You see an enemy\n').
-lookNow(I,J):-e4(I,J,'alive',_,_),write('You see an enemy\n').
-lookNow(I,J):-e5(I,J,'alive',_,_),write('You see an enemy\n').
-lookNow(I,J):-e6(I,J,'alive',_,_),write('You see an enemy\n').
-lookNow(I,J):-e7(I,J,'alive',_,_),write('You see an enemy\n').
-lookNow(I,J):-e8(I,J,'alive',_,_),write('You see an enemy\n').
-lookNow(I,J):-e9(I,J,'alive',_,_),write('You see an enemy\n').
-lookNow(I,J):-e10(I,J,'alive',_,_),write('You see an enemy\n').
-lookNow(I,J):-item1(I,J,'available','water'),write('You see some water\n').
-lookNow(I,J):-item2(I,J,'available','water'),write('You see some water\n').
-lookNow(I,J):-item3(I,J,'available','water'),write('You see some water\n').
-lookNow(I,J):-item4(I,J,'available','food'),write('You see some food\n').
-lookNow(I,J):-item5(I,J,'available','food'),write('You see some food\n').
-lookNow(I,J):-item6(I,J,'available','food'),write('You see some food\n').
-lookNow(I,J):-item7(I,J,'available','food'),write('You see some food\n').
-lookNow(I,J):-item8(I,J,'available','medecine'),write('You see some medicine\n').
-lookNow(I,J):-item9(I,J,'available','medecine'),write('You see some medicine\n').
-lookNow(I,J):-item10(I,J,'available','radar'),write('You see a radar\n').
-lookNow(I,J):-itemE1(I,J,'available','water'),write('You see some water\n').
-lookNow(I,J):-itemE2(I,J,'available','water'),write('You see some water\n').
-lookNow(I,J):-itemE3(I,J,'available','water'),write('You see some water\n').
-lookNow(I,J):-itemE4(I,J,'available','food'),write('You see some food\n').
-lookNow(I,J):-itemE5(I,J,'available','food'),write('You see some food\n').
-lookNow(I,J):-itemE6(I,J,'available','food'),write('You see some food\n').
-lookNow(I,J):-itemE7(I,J,'available','food'),write('You see some food\n').
-lookNow(I,J):-itemE8(I,J,'available','medecine'),write('You see some medicine\n').
-lookNow(I,J):-itemE9(I,J,'available','medecine'),write('You see some medicine\n').
-lookNow(I,J):-itemE10(I,J,'available','radar'),write('You see a radar\n').
-lookNow(I,J):-item11(I,J,'available','bazooka'),write('you see a bazooka'),!.
-lookNow(I,J):-item12(I,J,'available','bazooka'),write('you see a bazooka'),!.
-lookNow(I,J):-item13(I,J,'available','bazooka'),write('you see a bazooka'),!.
-lookNow(I,J):-item14(I,J,'available','bazooka'),write('you see a bazooka'),!.
-lookNow(I,J):-item15(I,J,'available','bazooka'),write('you see a bazooka'),!.
+lookNow(I,J):-e1(I,J,'alive',_,_),write('You see an enemy.\n').
+lookNow(I,J):-e2(I,J,'alive',_,_),write('You see an enemy.\n').
+lookNow(I,J):-e3(I,J,'alive',_,_),write('You see an enemy.\n').
+lookNow(I,J):-e4(I,J,'alive',_,_),write('You see an enemy.\n').
+lookNow(I,J):-e5(I,J,'alive',_,_),write('You see an enemy.\n').
+lookNow(I,J):-e6(I,J,'alive',_,_),write('You see an enemy.\n').
+lookNow(I,J):-e7(I,J,'alive',_,_),write('You see an enemy.\n').
+lookNow(I,J):-e8(I,J,'alive',_,_),write('You see an enemy.\n').
+lookNow(I,J):-e9(I,J,'alive',_,_),write('You see an enemy.\n').
+lookNow(I,J):-e10(I,J,'alive',_,_),write('You see an enemy.\n').
+lookNow(I,J):-item1(I,J,'available','water'),write('You see some water.\n').
+lookNow(I,J):-item2(I,J,'available','water'),write('You see some water.\n').
+lookNow(I,J):-item3(I,J,'available','water'),write('You see some water.\n').
+lookNow(I,J):-item4(I,J,'available','food'),write('You see some food.\n').
+lookNow(I,J):-item5(I,J,'available','food'),write('You see some food.\n').
+lookNow(I,J):-item6(I,J,'available','food'),write('You see some food.\n').
+lookNow(I,J):-item7(I,J,'available','food'),write('You see some food.\n').
+lookNow(I,J):-item8(I,J,'available','medecine'),write('You see some medicine.\n').
+lookNow(I,J):-item9(I,J,'available','medecine'),write('You see some medicine.\n').
+lookNow(I,J):-item10(I,J,'available','radar'),write('You see a radar.\n').
+lookNow(I,J):-itemE1(I,J,'available','water'),write('You see some water.\n').
+lookNow(I,J):-itemE2(I,J,'available','water'),write('You see some water.\n').
+lookNow(I,J):-itemE3(I,J,'available','water'),write('You see some water.\n').
+lookNow(I,J):-itemE4(I,J,'available','food'),write('You see some food.\n').
+lookNow(I,J):-itemE5(I,J,'available','food'),write('You see some food.\n').
+lookNow(I,J):-itemE6(I,J,'available','food'),write('You see some food.\n').
+lookNow(I,J):-itemE7(I,J,'available','food'),write('You see some food.\n').
+lookNow(I,J):-itemE8(I,J,'available','medecine'),write('You see some medicine.\n').
+lookNow(I,J):-itemE9(I,J,'available','medecine'),write('You see some medicine.\n').
+lookNow(I,J):-itemE10(I,J,'available','radar'),write('You see a radar.\n').
+lookNow(I,J):-item11(I,J,'available','bazooka'),write('you see a bazooka.\n').
+lookNow(I,J):-item12(I,J,'available','bazooka'),write('you see a bazooka.\n').
+lookNow(I,J):-item13(I,J,'available','bazooka'),write('you see a bazooka.\n').
+lookNow(I,J):-item14(I,J,'available','bazooka'),write('you see a bazooka.\n').
+lookNow(I,J):-item15(I,J,'available','bazooka'),write('you see a bazooka.\n').
+lookNow(I,J):-goride(I,J,'available','goride'),write('you see a goride! Hmm, I wonder what it could do...\n'),!.
+lookNow(I,J):-gocar(I,J,'available','gocar'),write('you see a gocar! Hmm, I wonder what it could do...\n'),!.
+lookNow(I,J):-gofood(I,J,'available','gofood'),write('you see a gofood! Hmm, I wonder what it could do...\n'),!.
+lookNow(I,J):-gosend(I,J,'available','gosend'),write('you see a gosend! Hmm, I wonder what it could do...\n'),!.
 lookNow(I,J):-write(''),!.
 
 
