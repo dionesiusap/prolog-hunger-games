@@ -45,10 +45,10 @@ movement(20,1,X1,Y1):-random(3,5,M),change_movement(20,1,X1,Y1,M),!.
 movement(20,10,X1,Y1):-change_movement(20,10,X1,Y1,1),!.
 movement(1,10,X1,Y1):-random(1,3,M),change_movement(1,10,X1,Y1,M),!.
 movement(1,Y,X1,Y1):-random(1,4,M),change_movement(1,Y,X1,Y1,M),!.
-movement(20,Y,X1,Y1):-random(1,5,M),M\==2,change_movement(20,Y,X1,Y1,M),!.
-movement(20,Y,X1,Y1):-random(1,5,M),M==2,M1 =1,change_movement(20,Y,X1,Y1,M1),!.
+movement(20,Y,X1,Y1):-random(1,5,M),M=:=2,!,change_movement(20,Y,X1,Y1,M).
+movement(20,Y,X1,Y1):-random(1,5,M),M==2,M1=1,change_movement(20,Y,X1,Y1,M1),!.
 movement(X,1,X1,Y1):-random(2,5,M),change_movement(X,1,X1,Y1,M),!.
-movement(X,10,X1,Y1):-random(1,5,M),M\==3,change_movement(X,10,X1,Y1,M),!.
+movement(X,10,X1,Y1):-random(1,5,M),M=:=3,!,change_movement(X,10,X1,Y1,M),!.
 movement(X,10,X1,Y1):-random(1,5,M),M==3,M1 =4,change_movement(X,10,X1,Y1,M1),!.
 movement(X,Y,X1,Y1):-random(1,5,M),change_movement(X,Y,X1,Y1,M),!.
 
