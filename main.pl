@@ -1,6 +1,6 @@
 setup :- consult(enemy),consult(map),consult(player),consult(item),consult(terrain),consult(attack),consult(save),consult(commands),initPlayer,initTerrain,initItem,initItemDrop,initMap,initEnemy.
 start :- setup,write('\n\n\nWelcome to the 77th Hunger Games!\nYou have been chosen as one of the lucky contestants. Be the last man standing and you will be rembered as \none of the victors\n\n\n'),help.
-help :- write('Available commands:\nstart.   --start the games!\nhelp.   --show available commands\nquit.   --quit the game\nlook.   --look around you\nn.s.e.w.   --move\nmap.   --look at the map and detect enemies(need radar to use)\ntake(Object).   --pick up an object\ndrop(Object).   --drop an object\nuse(Object).   --use an object\nattack.   --attack enemy that crosses your path\nstatus.   --show your status\nsaveGame(\'Filename.pl\').   --save your game\nload(\'Filename.pl\').   --load previously saved game\n').
+help :- write('Available commands:\nstart.   --start the games!\nhelp.   --show available commands\nquit.   --quit the game\nlook.   --look around you\nn.s.e.w.   --move\nmap.   --look at the map and detect enemies(need radar to use)\ntake(Object).   --pick up an object\ndrop(Object).   --drop an object\nuse(Object).   --use an object\nattack.   --attack enemy that crosses your path\nstatus.   --show your status\nsaveGame(\'Filename.pl\').   --save your game\nloadGame(\'Filename.pl\').   --load previously saved game\nsleep    --resting').
 quit :- halt.
 
 /*pemain([100,100,100,'none','Food','Apple']).

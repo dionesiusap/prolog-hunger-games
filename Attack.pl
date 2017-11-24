@@ -24,7 +24,7 @@ initItemDrop :-
 /*command untuk attack, hanya bisa menyerang musuh yang ada di petak yang sama) */
 attack :- player(X,Y,S,Lp,H,T,W,L), W =:= 1, e1(X,Y,'alive',Atk1,O), retract(e1(X,Y,'alive',Atk1,O)), 
 		asserta(e1(X,Y,'dead',Atk1,O)),write('an enemy killed\n'), retract(player(X,Y,S,Lp,H,T,W,L)), 
-		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\nk.'), retract(itemE1(-1,-1,'taken',0)),asserta(itemE1(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'),moveenemy,write('\n'), isWin.
+		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n.'), retract(itemE1(-1,-1,'taken',0)),asserta(itemE1(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'),moveenemy,write('\n'), isWin.
 attack :- player(X,Y,S,Lp,H,T,W,L), W =:= 1, e2(X,Y,'alive',Atk1,O), retract(e2(X,Y,'alive',Atk1,O)), 
 		asserta(e2(X,Y,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE2(-1,-1,'taken',0)),asserta(itemE2(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'),moveenemy, write('\n'), isWin.
@@ -82,7 +82,7 @@ isWin:-
 	e8(_,_,'dead',_,_),
 	e9(_,_,'dead',_,_),
 	e10(_,_,'dead',_,_),
-	write('All enemies are dead. Congratulations, you win!').
+	write('All enemies are dead. Congratulations, you win!'), halt.
 
 ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
 		asserta(e1(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
