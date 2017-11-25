@@ -5,7 +5,7 @@
 :-dynamic(player/8).
 
 initPlayer:-random(1,21,X),random(1,11,Y),look_pos(X,Y),!,initPlayer.
-initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(1,2,'alive',100,100,100,0,[''])).
+initPlayer:-random(1,21,X),random(1,11,Y),asserta(player(X,Y,'alive',100,100,100,0,[])).
 
 n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,look_pos(X,Y1),!,write('Can\'t move there\n'),moveenemy.
 n:-player(X,Y,S,Lp,H,T,W,L),\+dead,Y\==1,Y1 is Y - 1,retract(player(X,Y,S,Lp,H,T,W,L)),H1 is H-2,T1 is T-5,asserta(player(X,Y1,S,Lp,H1,T1,W,L)),lookTerrain(X,Y1),lookNow(X,Y1),moveenemy,fail.
@@ -103,10 +103,10 @@ look_elmt(I,J):-item12(I,J,'available','bazooka'),write('B'),!.
 look_elmt(I,J):-item13(I,J,'available','bazooka'),write('B'),!.
 look_elmt(I,J):-item14(I,J,'available','bazooka'),write('B'),!.
 look_elmt(I,J):-item15(I,J,'available','bazooka'),write('B'),!.
-look_elmt(I,J):-goride(I,J,'available','goride'),write('G'),!.
-look_elmt(I,J):-gocar(I,J,'available','gocar'),write('G'),!.
-look_elmt(I,J):-gofood(I,J,'available','gofood'),write('G'),!.
-look_elmt(I,J):-gosend(I,J,'available','gosend'),write('G'),!.
+look_elmt(I,J):-goride(I,J,'available','goride'),write('?'),!.
+look_elmt(I,J):-gocar(I,J,'available','gocar'),write('?'),!.
+look_elmt(I,J):-gofood(I,J,'available','gofood'),write('?'),!.
+look_elmt(I,J):-gosend(I,J,'available','gosend'),write('?'),!.
 look_elmt(I,J):-player(I,J,'alive',_,_,_,_,_),write('P'),!.
 look_elmt(I,J):-write('-').
 

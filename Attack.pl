@@ -84,281 +84,281 @@ isWin:-
 	e10(_,_,'dead',_,_),
 	write('All enemies are dead. Congratulations, you win!'), halt.
 
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
 		asserta(e1(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE1(-1,-1,'taken',0)),asserta(itemE1(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
 		asserta(e2(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE2(-1,-1,'taken',0)),asserta(itemE2(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
 		asserta(e3(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE3(-1,-1,'taken',0)),asserta(itemE3(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
 		asserta(e4(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE4(-1,-1,'taken',0)),asserta(itemE4(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
 		asserta(e5(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE5(-1,-1,'taken',0)),asserta(itemE5(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
 		asserta(e6(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE6(-1,-1,'taken',0)),asserta(itemE6(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
 		asserta(e7(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE7(-1,-1,'taken',0)),asserta(itemE7(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
 		asserta(e8(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE8(-1,-1,'taken',0)),asserta(itemE8(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
 		asserta(e9(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)),
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE9(-1,-1,'taken',0)),asserta(itemE9(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y - 1,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
 		asserta(e10(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE10(-1,-1,'taken',0)),asserta(itemE10(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
 
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
 		asserta(e1(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE1(-1,-1,'taken',0)),asserta(itemE1(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
 		asserta(e2(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE2(-1,-1,'taken',0)),asserta(itemE2(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
 		asserta(e3(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE3(-1,-1,'taken',0)),asserta(itemE3(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
 		asserta(e4(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE4(-1,-1,'taken',0)),asserta(itemE4(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
 		asserta(e5(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE5(-1,-1,'taken',0)),asserta(itemE5(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
 		asserta(e6(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE6(-1,-1,'taken',0)),asserta(itemE6(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
 		asserta(e7(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE7(-1,-1,'taken',0)),asserta(itemE7(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
 		asserta(e8(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE8(-1,-1,'taken',0)),asserta(itemE8(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
 		asserta(e9(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE9(-1,-1,'taken',0)),asserta(itemE9(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y - 1,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
 		asserta(e10(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE10(-1,-1,'taken',0)),asserta(itemE10(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
 
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
 		asserta(e1(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE1(-1,-1,'taken',0)),asserta(itemE1(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
 		asserta(e2(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE2(-1,-1,'taken',0)),asserta(itemE2(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
 		asserta(e3(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE3(-1,-1,'taken',0)),asserta(itemE3(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
 		asserta(e4(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE4(-1,-1,'taken',0)),asserta(itemE4(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
 		asserta(e5(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE5(-1,-1,'taken',0)),asserta(itemE5(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
 		asserta(e6(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE6(-1,-1,'taken',0)),asserta(itemE6(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
 		asserta(e7(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE7(-1,-1,'taken',0)),asserta(itemE7(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
 		asserta(e8(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE8(-1,-1,'taken',0)),asserta(itemE8(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
 		asserta(e9(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE9(-1,-1,'taken',0)),asserta(itemE9(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y - 1,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
 		asserta(e10(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE10(-1,-1,'taken',0)),asserta(itemE10(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
 
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
 		asserta(e1(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE1(-1,-1,'taken',0)),asserta(itemE1(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
 		asserta(e2(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE2(-1,-1,'taken',0)),asserta(itemE2(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
 		asserta(e3(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE3(-1,-1,'taken',0)),asserta(itemE3(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
 		asserta(e4(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE4(-1,-1,'taken',0)),asserta(itemE4(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
 		asserta(e5(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE5(-1,-1,'taken',0)),asserta(itemE5(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
 		asserta(e6(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE6(-1,-1,'taken',0)),asserta(itemE6(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
 		asserta(e7(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE7(-1,-1,'taken',0)),asserta(itemE7(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
 		asserta(e8(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE8(-1,-1,'taken',0)),asserta(itemE8(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
 		asserta(e9(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE9(-1,-1,'taken',0)),asserta(itemE9(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y ,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
 		asserta(e10(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE10(-1,-1,'taken',0)),asserta(itemE10(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
 
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
 		asserta(e1(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE1(-1,-1,'taken',0)),asserta(itemE1(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
 		asserta(e2(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE2(-1,-1,'taken',0)),asserta(itemE2(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
 		asserta(e3(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE3(-1,-1,'taken',0)),asserta(itemE3(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
 		asserta(e4(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE4(-1,-1,'taken',0)),asserta(itemE4(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
 		asserta(e5(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE5(-1,-1,'taken',0)),asserta(itemE5(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
 		asserta(e6(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE6(-1,-1,'taken',0)),asserta(itemE6(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
 		asserta(e7(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE7(-1,-1,'taken',0)),asserta(itemE7(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
 		asserta(e8(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE8(-1,-1,'taken',0)),asserta(itemE8(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
 		asserta(e9(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE9(-1,-1,'taken',0)),asserta(itemE9(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X ,B is Y ,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
 		asserta(e10(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE10(-1,-1,'taken',0)),asserta(itemE10(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
 
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
 		asserta(e1(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE1(-1,-1,'taken',0)),asserta(itemE1(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
 		asserta(e2(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE2(-1,-1,'taken',0)),asserta(itemE2(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
 		asserta(e3(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE3(-1,-1,'taken',0)),asserta(itemE3(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
 		asserta(e4(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE4(-1,-1,'taken',0)),asserta(itemE4(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
 		asserta(e5(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE5(-1,-1,'taken',0)),asserta(itemE5(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
 		asserta(e6(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE6(-1,-1,'taken',0)),asserta(itemE6(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
 		asserta(e7(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE7(-1,-1,'taken',0)),asserta(itemE7(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
 		asserta(e8(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE8(-1,-1,'taken',0)),asserta(itemE8(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
 		asserta(e9(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE9(-1,-1,'taken',0)),asserta(itemE9(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y ,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
 		asserta(e10(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE10(-1,-1,'taken',0)),asserta(itemE10(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
 
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
 		asserta(e1(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE1(-1,-1,'taken',0)),asserta(itemE1(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
 		asserta(e2(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE2(-1,-1,'taken',0)),asserta(itemE2(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
 		asserta(e3(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE3(-1,-1,'taken',0)),asserta(itemE3(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
 		asserta(e4(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE4(-1,-1,'taken',0)),asserta(itemE4(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
 		asserta(e5(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE5(-1,-1,'taken',0)),asserta(itemE5(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
 		asserta(e6(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE6(-1,-1,'taken',0)),asserta(itemE6(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
 		asserta(e7(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE7(-1,-1,'taken',0)),asserta(itemE7(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
 		asserta(e8(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE8(-1,-1,'taken',0)),asserta(itemE8(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
 		asserta(e9(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE9(-1,-1,'taken',0)),asserta(itemE9(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X - 1,B is Y + 1 ,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
 		asserta(e10(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE10(-1,-1,'taken',0)),asserta(itemE10(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
 
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
 		asserta(e1(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE1(-1,-1,'taken',0)),asserta(itemE1(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
 		asserta(e2(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE2(-1,-1,'taken',0)),asserta(itemE2(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
 		asserta(e3(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE3(-1,-1,'taken',0)),asserta(itemE3(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
 		asserta(e4(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE4(-1,-1,'taken',0)),asserta(itemE4(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
 		asserta(e5(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE5(-1,-1,'taken',0)),asserta(itemE5(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
 		asserta(e6(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE6(-1,-1,'taken',0)),asserta(itemE6(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
 		asserta(e7(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE7(-1,-1,'taken',0)),asserta(itemE7(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
 		asserta(e8(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE8(-1,-1,'taken',0)),asserta(itemE8(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
 		asserta(e9(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE9(-1,-1,'taken',0)),asserta(itemE9(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X,B is Y + 1 ,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
 		asserta(e10(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE10(-1,-1,'taken',0)),asserta(itemE10(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
 
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e1(U,B,'alive',Atk1,O), retract(e1(U,B,'alive',Atk1,O)), 
 		asserta(e1(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE1(-1,-1,'taken',0)),asserta(itemE1(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e2(U,B,'alive',Atk1,O), retract(e2(U,B,'alive',Atk1,O)), 
 		asserta(e2(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE2(-1,-1,'taken',0)),asserta(itemE2(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e3(U,B,'alive',Atk1,O), retract(e3(U,B,'alive',Atk1,O)), 
 		asserta(e3(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE3(-1,-1,'taken',0)),asserta(itemE3(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e4(U,B,'alive',Atk1,O), retract(e4(U,B,'alive',Atk1,O)), 
 		asserta(e4(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE4(-1,-1,'taken',0)),asserta(itemE4(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e5(U,B,'alive',Atk1,O), retract(e5(U,B,'alive',Atk1,O)), 
 		asserta(e5(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE5(-1,-1,'taken',0)),asserta(itemE5(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e6(U,B,'alive',Atk1,O), retract(e6(U,B,'alive',Atk1,O)), 
 		asserta(e6(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE6(-1,-1,'taken',0)),asserta(itemE6(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e7(U,B,'alive',Atk1,O), retract(e7(U,B,'alive',Atk1,O)), 
 		asserta(e7(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE7(-1,-1,'taken',0)),asserta(itemE7(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e8(U,B,'alive',Atk1,O), retract(e8(U,B,'alive',Atk1,O)), 
 		asserta(e8(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE8(-1,-1,'taken',0)),asserta(itemE8(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e9(U,B,'alive',Atk1,O), retract(e9(U,B,'alive',Atk1,O)), 
 		asserta(e9(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE9(-1,-1,'taken',0)),asserta(itemE9(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
-ambilorder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
+ambilOrder :- player(X,Y,S,Lp,H,T,W,L), W =:= 2,U is X + 1,B is Y + 1 ,e10(U,B,'alive',Atk1,O), retract(e10(U,B,'alive',Atk1,O)), 
 		asserta(e10(U,B,'dead',Atk1,O)),write('an enemy killed\n'),  retract(player(X,Y,S,Lp,H,T,W,L)), 
 		F is Lp-Atk1, \+ isDead(F), asserta(player(X,Y,S,F,H,T,W,L)), write('you\'ve been wounded -'),write(Atk1), write(' HP\n'), retract(itemE10(-1,-1,'taken',0)),asserta(itemE10(X,Y,'available',O)),write('Your enemy dropped '),write(O),write('\n'), write('\n'), isWin.
